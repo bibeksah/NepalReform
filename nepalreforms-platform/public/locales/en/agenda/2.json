@@ -1,0 +1,117 @@
+{
+  "id": "2",
+  "title": "Hold Free and Fair Elections",
+  "description": "Nepal completed its parliamentary election in March 2026. This public agenda is now treated as delivered, while deeper verification of candidate vetting, campaign finance transparency, and electoral integrity belongs in tracker-backed evidence.",
+  "category": "Electoral Reform",
+  "priority": "High",
+  "timeline": "Completed on 5 March 2026",
+  "updatedOn": "5 Mar 2026",
+  "problem": {
+    "short": "This electoral milestone has already been delivered. The platform should reflect that the election itself is complete rather than still describing it as an upcoming event.",
+    "long": "Nepal completed its parliamentary election in March 2026. That means the public platform should no longer present this agenda as a future commitment or countdown. The completed election is a delivered milestone. What remains important now is post-election accountability: whether candidate vetting standards were strong enough, whether campaign finance disclosures were meaningful, whether electoral fairness held in practice, and what reforms still remain unfinished. Those deeper questions belong in tracker-backed evidence and follow-on reform agendas, not in a still-pending election status."
+  },
+  "solution": {
+    "short": [
+      "Mark this agenda as delivered on the public platform",
+      "Use the tracker for deeper post-election accountability and evidence review",
+      "Track unfinished electoral reforms as follow-on agendas instead of keeping this election milestone open"
+    ],
+    "long": {
+      "phases": [
+        {
+          "phase": "Completed milestone",
+          "title": "March 2026 election delivered",
+          "items": [
+            "The parliamentary election scheduled for March 2026 has already taken place",
+            "The public platform should therefore show this agenda as completed",
+            "Public-facing copy should avoid presenting the election as still upcoming"
+          ]
+        },
+        {
+          "phase": "Accountability follow-through",
+          "title": "Deeper evidence belongs in the tracker",
+          "items": [
+            "Candidate screening quality should be evaluated through tracker-backed records",
+            "Campaign finance transparency and enforcement should be reviewed through the accountability layer",
+            "Any gaps, irregularities, or unresolved disputes should be documented as evidence rather than hidden inside a completed milestone badge"
+          ]
+        },
+        {
+          "phase": "Next reform work",
+          "title": "Separate future reform from this delivered event",
+          "items": [
+            "If electoral law reforms remain unfinished, they should be tracked as distinct next-step agendas",
+            "The completed election should remain visible as a delivered milestone",
+            "Future electoral reform should be measured separately from the fact that the election itself already happened"
+          ]
+        }
+      ]
+    }
+  },
+  "realWorldEvidence": {
+    "short": [
+      "The March 2026 parliamentary election was completed",
+      "A delivered election milestone should be displayed differently from unfinished reform promises",
+      "Post-election integrity questions still require deeper evidence review"
+    ],
+    "long": [
+      {
+        "country": "Nepal",
+        "details": "The parliamentary election scheduled for March 2026 has already been held.",
+        "impact": "This agenda should be marked as delivered on the public platform."
+      },
+      {
+        "country": "Platform principle",
+        "details": "Completed public milestones should not remain in a pre-delivery or countdown state.",
+        "impact": "This keeps the public platform honest about what has already happened versus what is still pending."
+      },
+      {
+        "country": "Accountability principle",
+        "details": "A completed election does not end the need for oversight on fairness, money, and enforcement.",
+        "impact": "The tracker remains the right place for deeper evidence and post-election scrutiny."
+      }
+    ]
+  },
+  "implementation": {
+    "short": [
+      "Show this agenda as delivered across homepage, agenda cards, and detail views",
+      "Preserve tracker handoff for deeper evidence and accountability detail",
+      "Move any remaining electoral reform work into follow-on agenda tracking"
+    ],
+    "long": [
+      {
+        "timeline": "Completed",
+        "description": "Election milestone delivered",
+        "details": [
+          "Nepal completed the March 2026 parliamentary election",
+          "This agenda is now a delivered milestone rather than an upcoming reform event",
+          "Public status should read as complete wherever this agenda appears"
+        ]
+      },
+      {
+        "timeline": "Now",
+        "description": "Reflect completion honestly on the public platform",
+        "details": [
+          "Homepage and agenda explorer surfaces should show delivered status",
+          "Agenda detail should explain that the election already happened",
+          "Tracker handoff should remain available for deeper verification and evidence review"
+        ]
+      },
+      {
+        "timeline": "Next",
+        "description": "Track remaining reform gaps separately",
+        "details": [
+          "Outstanding campaign finance, vetting, or electoral integrity reforms should be treated as separate follow-on work",
+          "Do not keep this election milestone artificially open just because broader reform remains unfinished",
+          "Use future agendas to show what still needs to be fixed"
+        ]
+      }
+    ]
+  },
+  "performanceTargets": [
+    "Election milestone completed on 5 March 2026",
+    "Public platform shows this agenda as delivered",
+    "Deeper post-election accountability remains available through tracker-backed evidence"
+  ],
+  "legalFoundation": "The election itself has already been completed. Any remaining electoral reform or accountability questions should be tracked separately through evidence-backed follow-up work."
+}

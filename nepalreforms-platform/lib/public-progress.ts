@@ -35,6 +35,8 @@ type PublicProgressSource = {
   updatedOn?: string
 }
 
+type PublicProgressOverride = Partial<PublicProgressFields>
+
 const TRACKER_BASE_URL = "https://tracker.nepalreforms.com"
 const FEATURED_IDS = new Set(["1", "2", "3", "7", "11", "19"])
 
@@ -46,6 +48,20 @@ const STAGE_CONFIG: Record<PublicStage, { percent: number | null; label: string 
   "Partially Delivered": { percent: 78, label: "Partially delivered" },
   Delivered: { percent: 100, label: "Delivered" },
   Stalled: { percent: null, label: "Status unclear" },
+}
+
+const PUBLIC_PROGRESS_OVERRIDES: Record<string, PublicProgressOverride> = {
+  "2": {
+    publicStage: "Delivered",
+    progressPercent: 100,
+    progressLabel: "Delivered - 100% signal",
+    trustLabel: "Completed public milestone",
+    headlineUpdate: "Nepal completed the March 2026 parliamentary election.",
+    statusReason:
+      "This agenda is marked complete because the election milestone itself has already been delivered. Use the tracker for deeper post-election evidence and accountability review.",
+    lastUpdated: "5 Mar 2026",
+    trackerAvailable: true,
+  },
 }
 
 function safeFirst(items?: string[], fallback?: string) {
@@ -70,7 +86,10 @@ function inferStage(source: PublicProgressSource): PublicStage {
     source.problem?.short,
     ...(source.solution?.short ?? []),
     ...(source.implementation?.short ?? []),
-  ].filter(Boolean).join(" ").toLowerCase()
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase()
 
   if (/(delivered|completed|implemented|operational|launched|full independence achievement)/.test(text)) return "Partially Delivered"
   if (/(ongoing|during campaign|live|operational in pilot|establish|deployment|recruit|build political consensus)/.test(text)) return "Moving Forward"
@@ -120,18 +139,28 @@ function inferStatusReason(source: PublicProgressSource, stage: PublicStage): st
 }
 
 export function derivePublicProgress(source: PublicProgressSource): PublicProgressFields {
-  const publicStage = inferStage(source)
-  const progressPercent = inferProgressPercent(publicStage, source)
+  const override = PUBLIC_PROGRESS_OVERRIDES[source.id]
+  const publicStage = override?.publicStage ?? inferStage(source)
+  const progressPercent = Object.prototype.hasOwnProperty.call(override ?? {}, "progressPercent")
+    ? override?.progressPercent ?? null
+    : inferProgressPercent(publicStage, source)
   const trackerUrl = inferTrackerUrl(source.id)
+
   return {
     publicStage,
     progressPercent,
-    progressLabel: progressPercent == null ? STAGE_CONFIG[publicStage].label : `${STAGE_CONFIG[publicStage].label} · ${progressPercent}% signal`,
-    trustLabel: inferTrustLabel(source, publicStage),
-    headlineUpdate: inferHeadlineUpdate(source, publicStage),
-    statusReason: inferStatusReason(source, publicStage),
-    lastUpdated: normalizeText(source.updatedOn) || null,
-    trackerAvailable: Boolean(trackerUrl),
+    progressLabel:
+      override?.progressLabel ??
+      (progressPercent == null ? STAGE_CONFIG[publicStage].label : `${STAGE_CONFIG[publicStage].label} - ${progressPercent}% signal`),
+    trustLabel: override?.trustLabel ?? inferTrustLabel(source, publicStage),
+    headlineUpdate: override?.headlineUpdate ?? inferHeadlineUpdate(source, publicStage),
+    statusReason: override?.statusReason ?? inferStatusReason(source, publicStage),
+    lastUpdated: Object.prototype.hasOwnProperty.call(override ?? {}, "lastUpdated")
+      ? override?.lastUpdated ?? null
+      : normalizeText(source.updatedOn) || null,
+    trackerAvailable: Object.prototype.hasOwnProperty.call(override ?? {}, "trackerAvailable")
+      ? Boolean(override?.trackerAvailable)
+      : Boolean(trackerUrl),
     trackerUrl,
     featured: FEATURED_IDS.has(source.id),
   }
@@ -158,3 +187,4 @@ export function getStageTone(stage: PublicStage) {
       return "text-slate-700 border-slate-200 bg-slate-50"
   }
 }
+
