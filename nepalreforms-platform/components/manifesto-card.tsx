@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Clock, ArrowRight } from "lucide-react"
+import { ExternalLink, Clock, ArrowRight, FileText } from "lucide-react"
 import Link from "next/link"
 import { AgendaVoteSection } from "@/components/agenda-vote-section"
 import { ManifestoSummaryItem } from "@/hooks/use-manifesto-data"
@@ -70,6 +70,22 @@ export function ManifestoCard({ item }: ManifestoCardProps) {
         <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-3">
           <div className="flex items-center gap-2 text-sm font-medium text-slate-800"><Clock className="h-4 w-4 text-slate-500" />{item.lastUpdated ? `Last updated ${item.lastUpdated}` : "No dated update shown on this public page yet"}</div>
           <p className="mt-2 text-sm text-slate-600">{item.statusReason}</p>
+        </div>
+        <div className="rounded-xl border border-violet-200 bg-violet-50/70 p-3">
+          <div className="flex items-center gap-2 text-sm font-medium text-violet-900"><FileText className="h-4 w-4 text-violet-600" />Promise provenance</div>
+          <p className="mt-2 text-sm text-slate-700">
+            {item.promiseSourceParty && item.promiseSourceDocument
+              ? `${item.promiseSourceParty} / ${item.promiseSourceDocument}`
+              : "Winning-party promise source not linked yet"}
+          </p>
+          <p className="mt-2 text-sm text-slate-600">{item.promiseSourceStatus}</p>
+          {item.promiseSourceQuote ? (
+            <blockquote className="mt-3 rounded-lg border-l-4 border-violet-300 bg-white/80 px-3 py-2 text-sm italic text-slate-700">
+              ï¿½{item.promiseSourceQuote}ï¿½
+            </blockquote>
+          ) : (
+            <p className="mt-3 text-xs text-slate-500">Exact supporting quote is not linked on the public page yet.</p>
+          )}
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Button asChild className="sm:flex-1"><Link href={`/agenda/${item.id}`}>Read agenda summary<ArrowRight className="ml-2 h-4 w-4" /></Link></Button>

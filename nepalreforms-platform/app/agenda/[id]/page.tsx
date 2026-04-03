@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { useParams, notFound } from "next/navigation"
 import Link from "next/link"
-import { ArrowLeft, Clock, Globe, Scale, Target, TrendingUp, Users, ChevronRight } from "lucide-react"
+import { ArrowLeft, Clock, Globe, Scale, Target, TrendingUp, Users, ChevronRight, FileText } from "lucide-react"
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -59,6 +59,16 @@ function AgendaPageContent({ item, totalReforms }: { item: CombinedManifestoItem
               <div className="mt-6 space-y-4">
                 <AgendaProgressBar value={item.progressPercent} label={item.progressLabel} />
                 <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 text-sm text-slate-600"><div className="flex items-center gap-2 font-medium text-slate-800"><Clock className="h-4 w-4" />{item.lastUpdated ? `Last updated ${item.lastUpdated}` : "No dated public update is shown here yet"}</div><p className="mt-2">{item.statusReason}</p></div>
+                <div className="rounded-2xl border border-violet-200 bg-violet-50/70 p-4 text-sm text-slate-700">
+                  <div className="flex items-center gap-2 font-medium text-violet-900"><FileText className="h-4 w-4 text-violet-600" />Promise provenance</div>
+                  <p className="mt-2">{item.promiseSourceParty && item.promiseSourceDocument ? `${item.promiseSourceParty} / ${item.promiseSourceDocument}` : "Winning-party promise source not linked yet"}</p>
+                  <p className="mt-2 text-slate-600">{item.promiseSourceStatus}</p>
+                  {item.promiseSourceQuote ? (
+                    <blockquote className="mt-3 rounded-xl border-l-4 border-violet-300 bg-white/80 px-4 py-3 italic text-slate-700">ï¿½{item.promiseSourceQuote}ï¿½</blockquote>
+                  ) : (
+                    <p className="mt-3 text-xs text-slate-500">Exact supporting quote is not linked on the public page yet.</p>
+                  )}
+                </div>
               </div>
               <div className="mt-6"><TrackerHandoffCard trackerAvailable={item.trackerAvailable} trackerUrl={item.trackerUrl} /></div>
             </section>
@@ -87,7 +97,7 @@ function AgendaPageContent({ item, totalReforms }: { item: CombinedManifestoItem
             <Card><CardHeader><CardTitle className="flex items-center gap-2"><TrendingUp className="h-5 w-5" />Public support</CardTitle></CardHeader><CardContent><AgendaVoteSection agendaId={item.id} size="default" className="mb-3" /><p className="text-xs text-muted-foreground">Public support here is a signal of engagement, not proof of delivery.</p></CardContent></Card>
             <Card><CardHeader><CardTitle>Quick information</CardTitle></CardHeader><CardContent className="space-y-4"><div><label className="text-sm font-medium text-muted-foreground">Category</label><p className="text-foreground font-medium">{item.category}</p></div><div><label className="text-sm font-medium text-muted-foreground">Timeline</label><p className="text-foreground font-medium">{item.timeline}</p></div><div><label className="text-sm font-medium text-muted-foreground">Tracker</label><p className="text-foreground font-medium">{item.trackerAvailable ? "Available" : "Not linked yet"}</p></div>{item.updatedOn && <div><label className="text-sm font-medium text-muted-foreground">Last updated</label><p className="text-foreground font-medium">{item.updatedOn}</p></div>}</CardContent></Card>
             <Card><CardHeader><CardTitle>Navigate agendas</CardTitle></CardHeader><CardContent className="space-y-3">{Number.parseInt(item.id) > 1 && <Link href={`/agenda/${Number.parseInt(item.id) - 1}`}><Button variant="outline" size="sm" className="w-full justify-start bg-transparent"><ArrowLeft className="h-4 w-4 mr-2" />Previous agenda</Button></Link>}{Number.parseInt(item.id) < totalReforms && <Link href={`/agenda/${Number.parseInt(item.id) + 1}`}><Button variant="outline" size="sm" className="w-full justify-start bg-transparent">Next agenda<ArrowLeft className="h-4 w-4 ml-2 rotate-180" /></Button></Link>}<Link href="/#agendas-section"><Button variant="secondary" size="sm" className="w-full">View all agendas</Button></Link></CardContent></Card>
-            <Card><CardHeader><CardTitle className="flex items-center gap-2"><Users className="h-5 w-5" />Share and contribute</CardTitle></CardHeader><CardContent className="space-y-3"><p className="text-sm text-muted-foreground">Share this public summary, then use the tracker for deeper evidence when you want to verify the agenda’s status.</p><ShareDialog title={`Agenda #${item.id}: ${item.title}`} description={item.description} /><div className="max-h-96 overflow-y-auto pr-2"><SuggestionSection agendaId={item.id} /></div></CardContent></Card>
+            <Card><CardHeader><CardTitle className="flex items-center gap-2"><Users className="h-5 w-5" />Share and contribute</CardTitle></CardHeader><CardContent className="space-y-3"><p className="text-sm text-muted-foreground">Share this public summary, then use the tracker for deeper evidence when you want to verify the agendaï¿½s status.</p><ShareDialog title={`Agenda #${item.id}: ${item.title}`} description={item.description} /><div className="max-h-96 overflow-y-auto pr-2"><SuggestionSection agendaId={item.id} /></div></CardContent></Card>
           </div>
         </div>
       </main>
