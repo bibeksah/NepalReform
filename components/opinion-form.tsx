@@ -3,7 +3,6 @@
 import type React from "react"
 
 import { useState } from "react"
-import { createClient } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -51,7 +50,6 @@ export function OpinionForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const router = useRouter()
-  const supabase = createClient()
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -89,14 +87,6 @@ export function OpinionForm() {
     setIsSubmitting(true)
 
     try {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser()
-      if (!user) {
-        router.push("/auth/login")
-        return
-      }
-
       // Filter out empty values from arrays
       const cleanedData = {
         ...formData,
@@ -106,32 +96,21 @@ export function OpinionForm() {
         stakeholders: stakeholders.filter((stakeholder) => stakeholder.trim()),
         references: references.filter((ref) => ref.trim()),
         tags,
-        status: "Draft", // New opinions start as drafts
-        user_id: user.id,
       }
 
-      const { error } = await supabase.from("agendas").insert(cleanedData)
+      const response = await fetch("/api/agendas", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(cleanedData),
+      })
 
-      if (error) throw error
-
-      try {
-        await fetch("/api/send-email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            type: "opinion",
-            data: cleanedData,
-          }),
-        })
-      } catch (emailError) {
-        console.error("Failed to send email notification:", emailError)
-        // Don't fail the request if email fails
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || t('opinions.errorMessage'))
       }
 
       toast.success(t('opinions.successMessage'))
-      router.push("/")
+      router.push("/opinions")
     } catch (error) {
       console.error("Error submitting opinion:", error)
       toast.error(t('opinions.errorMessage'))

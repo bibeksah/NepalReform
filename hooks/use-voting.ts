@@ -1,7 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { createClient } from "@/lib/supabase/client"
+import { useState, useEffect, useMemo } from "react"
 
 interface VoteCounts {
   [itemId: string]: {
@@ -17,25 +16,17 @@ interface UserVotes {
 export function useVoting(table: "agenda_votes" | "suggestion_votes", itemIds: string[]) {
   const [userVotes, setUserVotes] = useState<UserVotes>({})
   const [voteCounts, setVoteCounts] = useState<VoteCounts>({})
-  const [user, setUser] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
-  const supabase = createClient()
+  const itemIdsKey = useMemo(() => itemIds.filter(Boolean).sort().join(","), [itemIds])
 
   useEffect(() => {
-    checkUser()
     if (itemIds.length > 0) {
       fetchBatchVotes()
+    } else {
+      setLoading(false)
     }
-  }, [itemIds])
-
-  const checkUser = async () => {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-    setUser(user)
-    setLoading(false)
-  }
+  }, [itemIdsKey])
 
   const fetchBatchVotes = async () => {
     try {
@@ -48,19 +39,16 @@ export function useVoting(table: "agenda_votes" | "suggestion_votes", itemIds: s
       if (!response.ok) throw new Error("Failed to fetch votes")
 
       const { voteCounts: counts, userVotes: votes } = await response.json()
-      setVoteCounts(counts)
-      setUserVotes(votes)
+      setVoteCounts(counts || {})
+      setUserVotes(votes || {})
     } catch (error) {
       console.error("Error fetching batch votes:", error)
+    } finally {
+      setLoading(false)
     }
   }
 
   const handleVote = async (itemId: string, voteType: "like" | "dislike") => {
-    if (!user) {
-      window.location.href = "/auth/login"
-      return
-    }
-
     try {
       const endpoint = table === "agenda_votes" ? `/api/agendas/${itemId}/vote` : `/api/suggestions/${itemId}/vote`
 
@@ -98,7 +86,6 @@ export function useVoting(table: "agenda_votes" | "suggestion_votes", itemIds: s
     userVotes,
     voteCounts,
     handleVote,
-    user,
     loading,
   }
 }

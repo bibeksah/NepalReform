@@ -1,5 +1,3 @@
-import { createClient } from "@/lib/supabase/server"
-
 /**
  * Validates if a string is a valid UUID format
  */
@@ -37,9 +35,10 @@ export function toManifestoFormat(id: string): string {
  * This ensures consistent UUID mapping for agenda items
  */
 export async function getOrCreateAgendaUUID(manifestoId: string): Promise<string | null> {
-  const supabase = await createClient()
-
   try {
+    const { createClient } = await import("@/lib/supabase/server")
+    const supabase = await createClient()
+
     // First, try to find existing agenda by sequence_id column (manifesto number)
     const manifestoNumber = manifestoId.replace("manifesto-", "")
 
@@ -166,6 +165,7 @@ export async function validateSuggestionUUID(suggestionId: string): Promise<{
   }
 
   try {
+    const { createClient } = await import("@/lib/supabase/server")
     const supabase = await createClient()
 
     const { data, error } = await supabase.from("suggestions").select("id").eq("id", suggestionId).single()

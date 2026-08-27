@@ -184,11 +184,6 @@ export const SuggestionList = memo(({ agendaId, refreshTrigger }: SuggestionList
 
   const handleVote = useCallback(
     async (id: string, type: "like" | "dislike") => {
-      if (!user) {
-        window.location.href = "/auth/login"
-        return
-      }
-
       try {
         const currentVote = userVotes[id]
         const currentCounts = voteCounts[id] || { likes: 0, dislikes: 0 }

@@ -45,7 +45,7 @@ export async function GET(request: NextRequest) {
 
 async function checkRLSStatus(supabase: any) {
   const { data, error } = await supabase.rpc("check_rls_status")
-  return { enabled: !error, tables_checked: data?.length || 0 }
+  return { enabled: !error, tables_checked: data?.length || 0, details: data || [] }
 }
 
 async function checkConnectionHealth(supabase: any) {
@@ -54,8 +54,11 @@ async function checkConnectionHealth(supabase: any) {
 }
 
 async function checkPolicyCoverage(supabase: any) {
-  // Check if all tables have appropriate policies
-  const tables = ["profiles", "agendas", "suggestions", "agenda_votes", "suggestion_votes", "activity_logs"]
+  const { data, error } = await supabase.rpc("get_security_audit_report")
+  if (error || !data?.tables) {
+    return {}
+  }
+
   const coverage: Record<
     string,
     {
@@ -67,15 +70,14 @@ async function checkPolicyCoverage(supabase: any) {
     }
   > = {}
 
-  for (const table of tables) {
-    const { data, error } = await supabase.from("pg_policies").select("policyname, cmd").eq("tablename", table)
-
-    coverage[table] = {
-      policies: data?.length || 0,
-      has_select: data?.some((p: PolicyData) => p.cmd === "SELECT") || false,
-      has_insert: data?.some((p: PolicyData) => p.cmd === "INSERT") || false,
-      has_update: data?.some((p: PolicyData) => p.cmd === "UPDATE") || false,
-      has_delete: data?.some((p: PolicyData) => p.cmd === "DELETE") || false,
+  for (const table of data.tables) {
+    const policies = table.policies || []
+    coverage[table.table_name] = {
+      policies: policies.length,
+      has_select: policies.some((p: PolicyData) => p.cmd === "SELECT" || p.cmd === "ALL"),
+      has_insert: policies.some((p: PolicyData) => p.cmd === "INSERT" || p.cmd === "ALL"),
+      has_update: policies.some((p: PolicyData) => p.cmd === "UPDATE" || p.cmd === "ALL"),
+      has_delete: policies.some((p: PolicyData) => p.cmd === "DELETE" || p.cmd === "ALL"),
     }
   }
 
@@ -93,20 +95,18 @@ async function getRecentAdminActivity(supabase: any) {
 }
 
 async function identifySecurityGaps(supabase: any) {
-  const gaps = []
+  const { data, error } = await supabase.rpc("check_rls_status")
+  if (error || !data) {
+    return []
+  }
 
-  // Check for tables without RLS
-  const { data: tables } = await supabase.from("pg_tables").select("tablename").eq("schemaname", "public")
-
-  for (const table of tables || []) {
-    const { data: rlsStatus } = await supabase
-      .from("pg_class")
-      .select("relrowsecurity")
-      .eq("relname", table.tablename)
-      .single()
-
-    if (!rlsStatus?.relrowsecurity) {
-      gaps.push(`Table ${table.tablename} does not have RLS enabled`)
+  const gaps: string[] = []
+  for (const t of data) {
+    if (!t.rls_enabled) {
+      gaps.push(`Table ${t.tablename} does not have RLS enabled`)
+    }
+    if (t.policies_count === 0 && t.rls_enabled) {
+      gaps.push(`Table ${t.tablename} has RLS enabled but no active policies`)
     }
   }
 

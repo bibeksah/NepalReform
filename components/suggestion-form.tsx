@@ -1,8 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
-import { createClient } from "@/lib/supabase/client"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
@@ -21,47 +20,11 @@ export function SuggestionForm({ agendaId, onSuggestionAdded }: SuggestionFormPr
   const [content, setContent] = useState("")
   const [authorName, setAuthorName] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [user, setUser] = useState<any>(null)
   const [error, setError] = useState<string | null>(null)
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-
-  const supabase = createClient()
-
-  useEffect(() => {
-    const loadSession = async () => {
-      try {
-        const { data: { session }, error } = await supabase.auth.getSession()
-        if (error) console.error("Error getting session:", error)
-        setUser(session?.user ?? null)
-      } catch (err) {
-        console.error("Error getting session:", err)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    loadSession()
-
-    // Listen for login/logout/session refresh
-    const { data: subscription } = supabase.auth.onAuthStateChange(
-      (_event: "SIGNED_IN" | "SIGNED_OUT" | "USER_UPDATED" | "USER_DELETED" | "PASSWORD_RECOVERY" | "TOKEN_REFRESHED" | "MFA_CHALLENGE_VERIFIED" | "MFA_VERIFIED" | "MFA_ENROLL", session: { user?: { id: string; email: string } } | null) => {
-        setUser(session?.user ?? null)
-      }
-    )
-
-    return () => {
-      subscription.subscription.unsubscribe()
-    }
-  }, [supabase])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    if (!user) {
-      window.location.href = "/auth/login"
-      return
-    }
 
     if (!content.trim() || !authorName.trim()) {
       setError(t('suggestions.errorRequired'))
@@ -108,34 +71,6 @@ export function SuggestionForm({ agendaId, onSuggestionAdded }: SuggestionFormPr
     } finally {
       setIsSubmitting(false)
     }
-  }
-
-  if (isLoading) {
-    return (
-      <Card className="border-dashed border-2 border-muted-foreground/25">
-        <CardContent className="pt-6">
-          <div className="text-center space-y-4">
-            <Loader2 className="h-6 w-6 animate-spin mx-auto" />
-            <p className="text-muted-foreground">{t('suggestions.loading')}</p>
-          </div>
-        </CardContent>
-      </Card>
-    )
-  }
-
-  if (!user) {
-    return (
-      <Card className="border-dashed border-2 border-muted-foreground/25">
-        <CardContent className="pt-6">
-          <div className="text-center space-y-4">
-            <p className="text-muted-foreground">{t('suggestions.signInPrompt')}</p>
-            <Button asChild>
-              <a href="/auth/login">{t('suggestions.signInButton')}</a>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    )
   }
 
   return (
@@ -224,23 +159,4 @@ export function SuggestionForm({ agendaId, onSuggestionAdded }: SuggestionFormPr
       </CardContent>
     </Card>
   )
-}
-
-type AuthChangeEvent =
-  | "SIGNED_IN"
-  | "SIGNED_OUT"
-  | "USER_UPDATED"
-  | "USER_DELETED"
-  | "PASSWORD_RECOVERY"
-  | "TOKEN_REFRESHED"
-  | "MFA_CHALLENGE_VERIFIED"
-  | "MFA_VERIFIED"
-  | "MFA_ENROLL";
-interface Session {
-  user: {
-    id: string;
-    email: string;
-    // add more user fields if your app needs
-  }
-  // add other session properties if required
 }

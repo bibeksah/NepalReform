@@ -43,44 +43,42 @@
   },
   {
     "id": "2",
-    "title": "Fresh Elections in 180 Days",
-    "description": "Conduct new parliamentary elections within 6 months with strict rules to ensure only qualified, honest candidates can run and all campaign money is transparent.",
+    "title": "Hold Free and Fair Elections",
+    "description": "Nepal held parliamentary elections in March 2026. This agenda is now marked complete on the public platform, while deeper accountability questions still belong in tracker-backed evidence.",
     "category": "Electoral Reform",
     "priority": "High",
-    "timeline": "180 days",
+    "timeline": "Completed on 5 March 2026",
     "problem": {
-      "short": "The current government has lost people's trust. The election system allows criminals and corrupt people to run for office, and voters don't know where campaign money comes from."
+      "short": "The key electoral milestone has now been delivered: Nepal completed the March 2026 parliamentary election. The public platform should treat this agenda as completed rather than still pending."
     },
     "solution": {
       "short": [
-        "Dissolve parliament and hold elections within 180 days",
-        "Ban candidates with criminal charges or corruption cases from running",
-        "Require all campaign donations and spending to be published online daily",
-        "Only allow individual people to donate money, no corporate donations",
-        "Add 'None of the Above' option - if it wins, hold new elections with new candidates"
+        "The March 2026 parliamentary election was completed",
+        "This agenda is now marked delivered on the public platform",
+        "Follow-up scrutiny on candidate quality, campaign finance, and enforcement should continue through the tracker",
+        "Any remaining electoral reform gaps should be tracked as separate next-step agendas"
       ]
     },
     "performanceTargets": [
-      "Complete background verification for 100% of candidates",
-      "Real-time tracking of all campaign donations and spending",
-      "Zero tolerance for hidden campaign funding",
-      "Complete electoral process within 180 days"
+      "Election completed on 5 March 2026",
+      "Public platform status updated to delivered",
+      "Tracker remains the deeper evidence surface for post-election accountability"
     ],
     "realWorldEvidence": {
       "short": [
-        "Ecuador allows president to dissolve parliament to break political deadlocks",
-        "Canada requires real-time disclosure of donations over $200 within 3 days",
-        "Countries with strict campaign finance rules have higher public trust in elections"
+        "The scheduled March 2026 parliamentary election was held",
+        "The platform should distinguish completed milestones from ongoing reform work",
+        "Post-election accountability still requires deeper evidence review"
       ]
     },
     "implementation": {
       "short": [
-        "President dissolves parliament due to political crisis",
-        "Election Commission publishes complete background checks on all candidates",
-        "Change electoral laws to disqualify candidates with pending corruption cases",
-        "Require candidates to submit audited expense reports within 30 days"
+        "Mark the election agenda as completed in the public progress model",
+        "Reflect delivery status consistently across cards, detail pages, and homepage signals",
+        "Route remaining accountability questions to the tracker layer"
       ]
-    }
+    },
+    "updatedOn": "5 Mar 2026"
   },
   {
     "id": "3",

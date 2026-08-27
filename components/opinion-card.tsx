@@ -60,10 +60,6 @@ function OpinionCardComponent({
   const [isExpanded, setIsExpanded] = useState(false)
 
   const handleVoteClick = (voteType: "like" | "dislike") => {
-    if (!user) {
-      window.location.href = "/auth/login"
-      return
-    }
     onVote?.(opinion.id, voteType)
   }
 

@@ -1,7 +1,8 @@
-import { createClient } from "@/lib/supabase/server"
+import { createServiceClient } from "@/lib/supabase/server"
 import { type NextRequest, NextResponse } from "next/server"
 import { isAllowedOrigin } from "@/lib/security/origin"
 import { checkRateLimit } from "@/lib/security/rate-limit"
+import { getOrCreateDeviceIdentity, attachDeviceCookie } from "@/lib/security/device-identity"
 
 export const runtime = "nodejs"
 
@@ -10,10 +11,14 @@ export async function POST(request: NextRequest) {
     if (!isAllowedOrigin(request)) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 })
     }
-    // Rate limit: batch fetches per IP (prevent scraping pressure)
-    const rl = checkRateLimit(request, "vote-batch", 60, 5 * 60 * 1000)
+
+    const deviceIdentity = getOrCreateDeviceIdentity(request)
+    const { deviceId, signedCookieValue, isNew } = deviceIdentity
+
+    // Rate limit: batch fetches per device/IP
+    const rl = checkRateLimit(request, "vote-batch", 120, 5 * 60 * 1000, deviceId)
     if (!("ok" in rl) || rl.ok === false) return rl.response
-    const supabase = await createClient()
+
     const { itemIds, table } = await request.json()
 
     if (!itemIds || !Array.isArray(itemIds) || !table) {
@@ -29,21 +34,19 @@ export async function POST(request: NextRequest) {
     }
 
     const itemIdColumn = table === "agenda_votes" ? "agenda_id" : "suggestion_id"
+    const svc = await createServiceClient()
 
-    // Get user for user-specific votes
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
-    const { data: votes, error } = await supabase
+    const { data: votes, error } = await svc
       .from(table)
-      .select(`${itemIdColumn}, vote_type, user_id`)
+      .select(`${itemIdColumn}, vote_type, device_id`)
       .in(itemIdColumn, itemIds)
-      .order(`${itemIdColumn}, vote_type`) // Leverage index ordering
 
-    if (error) throw error
+    if (error) {
+      console.error("Error fetching batch votes:", error)
+      throw error
+    }
 
-    // Process vote counts and user votes
+    // Process vote counts and device votes
     const voteCounts: Record<string, { likes: number; dislikes: number }> = {}
     const userVotes: Record<string, string> = {}
 
@@ -51,46 +54,37 @@ export async function POST(request: NextRequest) {
       voteCounts[id] = { likes: 0, dislikes: 0 }
     })
 
-    const voteMap = new Map<string, { likes: number; dislikes: number }>()
-    const userVoteMap = new Map<string, string>()
-
-    interface Vote {
-      [key: string]: string // allow access to both "agenda_id" and "suggestion_id"
+    interface VoteRow {
+      [key: string]: string | null
       vote_type: string
-      user_id: string
+      device_id: string | null
     }
 
-    votes?.forEach((vote: Vote) => {
+    votes?.forEach((vote: VoteRow) => {
       const itemId = vote[itemIdColumn]
+      if (!itemId) return
 
-      if (!voteMap.has(itemId)) {
-        voteMap.set(itemId, { likes: 0, dislikes: 0 })
+      if (!voteCounts[itemId]) {
+        voteCounts[itemId] = { likes: 0, dislikes: 0 }
       }
 
-      const counts = voteMap.get(itemId)!
       if (vote.vote_type === "like") {
-        counts.likes++
+        voteCounts[itemId].likes++
       } else if (vote.vote_type === "dislike") {
-        counts.dislikes++
+        voteCounts[itemId].dislikes++
       }
 
-      if (user && vote.user_id === user.id) {
-        userVoteMap.set(itemId, vote.vote_type)
+      if (vote.device_id && vote.device_id === deviceId) {
+        userVotes[itemId] = vote.vote_type
       }
     })
 
-    // Convert Maps back to objects for response
-    voteMap.forEach((counts, itemId) => {
-      voteCounts[itemId] = counts
-    })
+    let response = NextResponse.json({ voteCounts, userVotes })
+    response.headers.set("Cache-Control", "public, max-age=30, s-maxage=60")
+    if (isNew) {
+      response = attachDeviceCookie(response, signedCookieValue)
+    }
 
-    userVoteMap.forEach((voteType, itemId) => {
-      userVotes[itemId] = voteType
-    })
-
-    const response = NextResponse.json({ voteCounts, userVotes })
-    response.headers.set("Cache-Control", "public, max-age=60, s-maxage=120, stale-while-revalidate=300")
-    response.headers.set("Vary", "Authorization")
     return response
   } catch (error) {
     console.error("Batch vote fetch error:", error)

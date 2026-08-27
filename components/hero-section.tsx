@@ -1,195 +1,61 @@
 "use client"
 
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowDown, Users, MessageSquare, Vote } from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
+import { ArrowDown, ExternalLink, ShieldCheck, Activity, Clock3 } from "lucide-react"
 import Image from "next/image"
-import { useTranslation } from "react-i18next"
+import { ManifestoSummaryItem } from "@/hooks/use-manifesto-data"
 
-export function HeroSection() {
-  const { t } = useTranslation('common')
-  const scrollToAgendas = () => {
-    const agendasSection = document.getElementById("agendas-section")
-    agendasSection?.scrollIntoView({ behavior: "smooth" })
-  }
+interface HeroSectionProps { items: ManifestoSummaryItem[] }
 
-  const [index, setIndex] = useState(0)
-  
-  // Get animated words from translations
-  const words = [
-    t('hero.read'),
-    t('hero.challenge'),
-    t('hero.improve')
-  ]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length)
-    }, 2000) // change word every 2s
-    return () => clearInterval(interval)
-  }, [words.length])
+export function HeroSection({ items }: HeroSectionProps) {
+  const scrollToAgendas = () => document.getElementById("agendas-section")?.scrollIntoView({ behavior: "smooth" })
+  const featured = items.filter((item) => item.featured)
+  const moving = items.filter((item) => ["Moving Forward", "Partially Delivered", "Delivered"].includes(item.publicStage)).length
+  const dated = items.filter((item) => item.lastUpdated).length
+  const trackerLinked = items.filter((item) => item.trackerAvailable).length
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-16 sm:py-24">
-      {/* Hero Background Image - Full image with 50% opacity */}
+    <section className="relative overflow-hidden bg-gradient-to-br from-green-50 via-emerald-50 to-slate-50 py-16 sm:py-24">
       <div className="absolute inset-0 pointer-events-none">
-        <Image
-          src="/hero.webp"
-          alt="Nepal Reforms Background"
-          fill
-          className="object-cover object-center opacity-20"
-          priority
-          quality={85}
-          sizes="100vw"
-        />
-        {/* Optional subtle overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white/10" />
+        <Image src="/hero.webp" alt="Nepal reforms background" fill className="object-cover object-center opacity-15" priority quality={85} sizes="100vw" />
+        <div className="absolute inset-0 bg-white/65" />
       </div>
-      
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10 z-[1]">
-        <div className="absolute top-10 left-10 w-20 h-20 border-2 border-primary rounded-full animate-pulse" />
-        <div className="absolute top-32 right-20 w-16 h-16 bg-secondary/20 rounded-lg rotate-45 animate-bounce" />
-        <div className="absolute bottom-20 left-1/4 w-12 h-12 border-2 border-accent rounded-full animate-pulse" />
-        <div className="absolute bottom-32 right-1/3 w-8 h-8 bg-primary/20 rounded-full animate-bounce" />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center space-y-8">
-          {/* Main Heading with Logo */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-center gap-4">
-              {/* Logo */}
-              <div className="flex-shrink-0">
-                <Image
-                  src="/nrlogo7.png"
-                  alt="NepalReforms Logo"
-                  width={80}
-                  height={80}
-                  className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain"
-                  priority
-                />
-              </div>
-              
-              {/* Title */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                <span className="text-primary">Nepal</span>Reforms
-              </h1>
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div className="space-y-6">
+            <Badge variant="outline" className="border-emerald-200 bg-white/80 text-emerald-700">Public reform progress, not a polished fiction</Badge>
+            <div className="space-y-4">
+              <h1 className="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">See which reform agendas are moving, stalled, or still waiting for proof.</h1>
+              <p className="max-w-3xl text-lg leading-8 text-slate-700">NepalReforms is the readable public surface. It gives a careful progress signal for each agenda, then hands you off to the tracker when you want deeper evidence and accountability detail.</p>
             </div>
-            <p className="text-xl sm:text-2xl text-muted-foreground font-medium">
-              <span suppressHydrationWarning>{t('hero.subtitle')}</span>
-            </p>
-          </div>
-
-          {/* Description */}
-          <div className="max-w-3xl mx-auto space-y-4 bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-sm">
-            <p className="text-lg text-foreground leading-relaxed font-medium">
-              <span suppressHydrationWarning>{t('hero.description1')}</span>
-            </p>
-            <p className="text-base text-foreground/90">
-              <span suppressHydrationWarning>{t('hero.description2')}</span>
-            </p>
-            <p className="text-base text-foreground/90">
-              <span suppressHydrationWarning>{t('hero.description3')}</span>
-            </p>
-          </div>
-
-          {/* Animated Text */}
-          <div className="text-center space-y-4">
-            <div className="text-2xl md:text-3xl font-semibold flex justify-center items-center gap-2">
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.5 }}
-                className="text-primary"
-                suppressHydrationWarning
-              >
-                {words[index]}
-              </motion.span>
-              <span>it</span>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="rounded-2xl border bg-white/80 p-4 shadow-sm"><div className="text-2xl font-semibold text-slate-950">{items.length}</div><div className="mt-1 flex items-center gap-2 text-sm text-slate-600"><Activity className="h-4 w-4 text-emerald-600" /> Public agendas tracked</div></div>
+              <div className="rounded-2xl border bg-white/80 p-4 shadow-sm"><div className="text-2xl font-semibold text-slate-950">{moving}</div><div className="mt-1 flex items-center gap-2 text-sm text-slate-600"><ShieldCheck className="h-4 w-4 text-blue-600" /> Showing movement signals</div></div>
+              <div className="rounded-2xl border bg-white/80 p-4 shadow-sm"><div className="text-2xl font-semibold text-slate-950">{dated}</div><div className="mt-1 flex items-center gap-2 text-sm text-slate-600"><Clock3 className="h-4 w-4 text-violet-600" /> With dated public updates</div></div>
             </div>
-
-            <div className="text-lg md:text-xl font-bold" suppressHydrationWarning>
-              {t('hero.makeItReal')}
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button size="lg" onClick={scrollToAgendas} className="px-8">Explore agendas<ArrowDown className="ml-2 h-4 w-4" /></Button>
+              <Button size="lg" variant="outline" asChild className="bg-white/70"><Link href="https://tracker.nepalreforms.com" target="_blank" rel="noreferrer">Open tracker<ExternalLink className="ml-2 h-4 w-4" /></Link></Button>
             </div>
           </div>
-
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 py-8">
-            <div className="flex items-center gap-2 text-center bg-white/40 backdrop-blur-sm rounded-lg px-4 py-2">
-              <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                <Users className="h-5 w-5 text-primary" />
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-foreground">20+</div>
-                <div className="text-sm text-foreground/80" suppressHydrationWarning>{t('hero.stats.reforms')}</div>
-              </div>
+          <div className="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-xl backdrop-blur">
+            <div className="mb-4 flex items-center justify-between">
+              <div><p className="text-sm font-semibold text-slate-900">What this page promises</p><p className="text-sm text-slate-600">Editorial summary first. Evidence depth via tracker.</p></div>
+              <Badge variant="outline" className="border-slate-200 bg-slate-50 text-slate-700">{trackerLinked} tracker links</Badge>
             </div>
-            <div className="flex items-center gap-2 text-center bg-white/40 backdrop-blur-sm rounded-lg px-4 py-2">
-              <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">
-                <MessageSquare className="h-5 w-5 text-secondary" />
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-foreground">∞</div>
-                <div className="text-sm text-foreground/80" suppressHydrationWarning>{t('hero.stats.suggestions')}</div>
-              </div>
+            <div className="space-y-3">
+              {featured.slice(0, 3).map((item) => (
+                <div key={item.id} className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <div><p className="text-sm font-semibold text-slate-900">{item.title}</p><p className="mt-1 text-xs text-slate-600">{item.progressLabel}</p></div>
+                    <Badge variant="outline" className="border-emerald-200 bg-emerald-50 text-emerald-700">{item.publicStage}</Badge>
+                  </div>
+                  <p className="mt-2 text-sm text-slate-600 line-clamp-2">{item.headlineUpdate}</p>
+                </div>
+              ))}
             </div>
-            <div className="flex items-center gap-2 text-center bg-white/40 backdrop-blur-sm rounded-lg px-4 py-2">
-              <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center">
-                <Vote className="h-5 w-5 text-accent" />
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-foreground">100%</div>
-                <div className="text-sm text-foreground/80" suppressHydrationWarning>{t('hero.stats.democratic')}</div>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            {/* Replaced Email Button with Animated Border */}
-            <motion.div
-              className="relative rounded-md p-[3px] overflow-hidden"
-              animate={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              style={{
-                backgroundSize: "300% 300%",
-                backgroundImage:
-                  "linear-gradient(270deg, #db2777, #7c3aed, #2563eb, #db2777)", // animated gradient border
-              }}
-            >
-              <Button
-                size="lg"
-                asChild
-                className="relative z-10 px-8 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
-              >
-                <Link href="mailto:suggestions@nepalreforms.com">
-                  <span suppressHydrationWarning>{t('hero.emailUs')}</span>
-                </Link>
-              </Button>
-            </motion.div>
-
-
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={scrollToAgendas}
-              className="px-8 py-3 text-base font-medium bg-white/50 backdrop-blur-sm hover:bg-white/70 border-white/60"
-            >
-              <span suppressHydrationWarning>{t('hero.exploreAgendas')}</span>
-              <ArrowDown className="ml-2 h-5 w-5" />
-            </Button>
           </div>
         </div>
       </div>

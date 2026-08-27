@@ -157,26 +157,29 @@ export async function POST(request: NextRequest) {
 
       if (error) {
         console.error("Resend error:", error)
-        // Still return success to not break the flow
         return NextResponse.json({ 
-          success: true, 
-          message: "Email could not be sent, but request processed",
+          success: false, 
+          error: "Email delivery failed",
+          details: error.message || "Unknown provider error",
           emailId: null 
-        })
+        }, { status: 502 })
       }
 
       return NextResponse.json({ success: true, emailId: emailData?.id })
     } catch (emailError) {
       console.error("Email sending error:", emailError)
-      // Still return success to not break the flow
       return NextResponse.json({ 
-        success: true, 
-        message: "Email could not be sent, but request processed",
+        success: false, 
+        error: "Email service encountered an error",
+        details: emailError instanceof Error ? emailError.message : "Service exception",
         emailId: null 
-      })
+      }, { status: 502 })
     }
   } catch (error) {
     console.error("Request processing error:", error)
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    return NextResponse.json({ 
+      error: "Internal server error",
+      message: error instanceof Error ? error.message : "Unknown error"
+    }, { status: 500 })
   }
 }

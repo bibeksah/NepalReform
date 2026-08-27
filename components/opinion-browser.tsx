@@ -63,7 +63,7 @@ export function OpinionBrowser({ initialOpinions = [] }: OpinionBrowserProps) {
 
   // Batch fetch votes for all visible opinions (eliminates N+1 queries)
   const opinionIds = useMemo(() => filteredOpinions.map(o => o.id), [filteredOpinions])
-  const { voteCounts, userVotes, handleVote, user } = useVoting("agenda_votes", opinionIds)
+  const { voteCounts, userVotes, handleVote } = useVoting("agenda_votes", opinionIds)
 
   useEffect(() => {
     fetchOpinions()
@@ -277,7 +277,6 @@ export function OpinionBrowser({ initialOpinions = [] }: OpinionBrowserProps) {
               voteCounts={voteCounts[opinion.id] || { likes: 0, dislikes: 0 }}
               userVote={userVotes[opinion.id] || null}
               onVote={handleVote}
-              user={user}
             />
           ))}
         </div>

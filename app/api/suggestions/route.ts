@@ -1,14 +1,15 @@
-import { createClient } from "@/lib/supabase/server"
+import { createServiceClient } from "@/lib/supabase/server"
 import { type NextRequest, NextResponse } from "next/server"
 import { validateAndNormalizeAgendaId } from "@/lib/utils/uuid-helpers"
 import { isAllowedOrigin } from "@/lib/security/origin"
 import { checkRateLimit } from "@/lib/security/rate-limit"
+import { getOrCreateDeviceIdentity, attachDeviceCookie } from "@/lib/security/device-identity"
 
 export const runtime = "nodejs"
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = await createClient()
+    const svc = await createServiceClient()
     const { searchParams } = new URL(request.url)
     const agendaId = searchParams.get("agenda_id")
 
@@ -16,7 +17,6 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "agenda_id parameter is required" }, { status: 400 })
     }
 
-    // Use the same UUID validation and normalization as the vote route
     const validation = await validateAndNormalizeAgendaId(agendaId)
     if (!validation.isValid || !validation.agendaUUID) {
       return NextResponse.json({ error: validation.error || "Invalid agenda ID" }, { status: 400 })
@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
 
     const queryId = validation.agendaUUID
 
-    const { data: suggestions, error } = await supabase
+    const { data: suggestions, error } = await svc
       .from("suggestions")
       .select(`
         id,
@@ -42,12 +42,10 @@ export async function GET(request: NextRequest) {
     }
 
     const response = NextResponse.json({
-      // Do not expose user_id to the client
       suggestions: suggestions || [],
       agenda_id: queryId,
     })
-    // No caching for suggestions to ensure fresh data after submission
-    response.headers.set("Cache-Control", "no-cache, no-store, must-revalidate")
+    response.headers.set("Cache-Control", "public, max-age=15, s-maxage=30")
     return response
   } catch (error) {
     console.error("Error fetching suggestions:", error)
@@ -60,24 +58,13 @@ export async function POST(request: NextRequest) {
     if (!isAllowedOrigin(request)) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 })
     }
-    // Rate limit: submissions per IP
-    const rl = checkRateLimit(request, "suggestion-create", 5, 10 * 60 * 1000)
+
+    const deviceIdentity = getOrCreateDeviceIdentity(request)
+    const { deviceId, signedCookieValue, isNew } = deviceIdentity
+
+    // Rate limit: submissions per device
+    const rl = checkRateLimit(request, "suggestion-create", 5, 10 * 60 * 1000, deviceId)
     if (!("ok" in rl) || rl.ok === false) return rl.response
-    const supabase = await createClient()
-
-    const {
-      data: { user },
-      error: authError,
-    } = await supabase.auth.getUser()
-
-    if (authError) {
-      console.error("Auth error:", authError)
-      return NextResponse.json({ error: "Authentication failed" }, { status: 401 })
-    }
-
-    if (!user) {
-      return NextResponse.json({ error: "User not authenticated" }, { status: 401 })
-    }
 
     const body = await request.json()
     const { agenda_id, content, author_name } = body
@@ -92,28 +79,28 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "author_name is required" }, { status: 400 })
     }
 
-    // Use the same UUID validation and normalization as the vote route
     const validation = await validateAndNormalizeAgendaId(agenda_id)
     if (!validation.isValid || !validation.agendaUUID) {
       return NextResponse.json({ error: validation.error || "Invalid agenda ID" }, { status: 400 })
     }
 
     const queryId = validation.agendaUUID
+    const svc = await createServiceClient()
 
-    const { data: agendaData } = await supabase.from("agendas").select("title").eq("id", queryId).single()
+    const { data: agendaData } = await svc.from("agendas").select("title").eq("id", queryId).maybeSingle()
 
-    const { data: systemSettings } = await supabase
+    const { data: systemSettings } = await svc
       .from("system_settings")
       .select("auto_approve_suggestions")
-      .single();
+      .maybeSingle()
 
-    const autoApprove = systemSettings?.auto_approve_suggestions === true;
+    const autoApprove = systemSettings?.auto_approve_suggestions === true
 
-    const { data: suggestion, error } = await supabase
+    const { data: suggestion, error } = await svc
       .from("suggestions")
       .insert({
         agenda_id: queryId,
-        user_id: user.id,
+        device_id: deviceId,
         content: content.trim(),
         author_name: author_name.trim(),
         status: autoApprove ? "approved" : "pending",
@@ -126,6 +113,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Failed to create suggestion" }, { status: 500 })
     }
 
+    // Trigger asynchronous notification without blocking response
     setImmediate(async () => {
       try {
         await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/api/send-email`, {
@@ -148,18 +136,22 @@ export async function POST(request: NextRequest) {
       }
     })
 
-    // Prepare confirmation message based on auto-approve setting
     const confirmationMessage = autoApprove 
       ? "Thank you for your suggestion! Our team will review it and compile it in our next version of the manifesto."
-      : "Thanks for the suggestion! Due to many malicious actors, auto approve system is currently disabled but it is submitted to the team. It will be shown on website if it's approved."
+      : "Thanks for the suggestion! It has been submitted to the team and will appear on the platform once reviewed."
 
-    const response = NextResponse.json({
+    let response = NextResponse.json({
       success: true,
       suggestion,
       message: confirmationMessage,
       autoApproved: autoApprove,
     })
+
     response.headers.set("Cache-Control", "no-cache, no-store, must-revalidate")
+    if (isNew) {
+      response = attachDeviceCookie(response, signedCookieValue)
+    }
+
     return response
   } catch (error) {
     console.error("Error creating suggestion:", error)

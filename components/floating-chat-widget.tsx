@@ -1,9 +1,8 @@
 'use client'
 
 import React, { useState, useEffect, useCallback } from 'react'
-import { MessageCircle, X, LogIn } from 'lucide-react'
-import { usePathname, useRouter } from 'next/navigation'
-import { useAuth } from '@/contexts/auth-context'
+import { MessageCircle, X } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 // Configuration
 const CHATBOT_URL = process.env.NEXT_PUBLIC_CHATBOT_URL || 'https://chat.nepalreforms.com/?embedded=true'
@@ -11,24 +10,19 @@ const CHATBOT_TITLE = process.env.NEXT_PUBLIC_CHATBOT_TITLE || 'Nepal Reforms As
 
 const FloatingChatWidget: React.FC = () => {
   const pathname = usePathname()
-  const router = useRouter()
-  const { user, loading } = useAuth()
   const [isOpen, setIsOpen] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
 
   // Toggle chat window
   const toggleChat = useCallback(() => {
-    setIsOpen(prev => !prev)
-    // Only load iframe if user is authenticated
-    if (!isOpen && !isLoaded && user) {
-      setIsLoaded(true)
-    }
-  }, [isOpen, isLoaded, user])
-
-  // Navigate to sign in page
-  const handleSignIn = useCallback(() => {
-    router.push('/auth/login')
-  }, [router])
+    setIsOpen(prev => {
+      const next = !prev
+      if (next && !isLoaded) {
+        setIsLoaded(true)
+      }
+      return next
+    })
+  }, [isLoaded])
 
   // Handle ESC key to close chat
   useEffect(() => {
@@ -59,7 +53,7 @@ const FloatingChatWidget: React.FC = () => {
 
   return (
     <>
-      {/* Toggle/Close Button - Same Position Always */}
+      {/* Toggle/Close Button */}
       <button
         onClick={toggleChat}
         className="fixed bottom-6 right-6 z-[10001] flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 text-white rounded-full shadow-lg hover:shadow-2xl transform hover:scale-110 transition-all duration-300 group"
@@ -76,69 +70,24 @@ const FloatingChatWidget: React.FC = () => {
         )}
       </button>
 
-      {/* Chat Window - Responsive positioning */}
+      {/* Chat Window */}
       {isOpen && (
         <div
           className="fixed z-[9999] transition-all duration-300 transform top-0 left-0 right-0 w-full h-[90vh] sm:top-auto sm:bottom-6 sm:right-24 sm:left-auto sm:w-[min(420px,calc(100vw-120px))] sm:h-[min(640px,calc(100vh-48px))]"
         >
-          {/* Iframe Container - Full Window */}
+          {/* Iframe Container */}
           <div className="w-full h-full bg-white shadow-2xl overflow-hidden ring-1 ring-black/10 rounded-b-2xl sm:rounded-2xl">
-            {loading ? (
-              // Loading state while checking authentication
-              <div className="flex items-center justify-center h-full bg-gradient-to-br from-green-50 to-blue-50">
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4 animate-pulse">
-                    <MessageCircle size={32} className="text-green-600" />
-                  </div>
-                  <p className="text-gray-600 font-medium">Loading...</p>
-                </div>
-              </div>
-            ) : !user ? (
-              // Not authenticated - Show login prompt
-              <div className="flex flex-col items-center justify-center h-full bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 p-8">
-                <div className="text-center max-w-sm">
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full mb-6 shadow-lg">
-                    <MessageCircle size={40} className="text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-3">
-                    Chat Assistant
-                  </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    Please sign in to access the Nepal Reforms AI Assistant and get answers to your questions.
-                  </p>
-                  <button
-                    onClick={handleSignIn}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-br from-green-500 to-green-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition-all duration-300"
-                  >
-                    <LogIn size={20} />
-                    <span>Sign In to Chat</span>
-                  </button>
-                  <p className="text-xs text-gray-500 mt-4">
-                    Don't have an account?{' '}
-                    <button
-                      onClick={() => router.push('/auth/signup')}
-                      className="text-green-600 hover:text-green-700 font-medium underline"
-                    >
-                      Sign up here
-                    </button>
-                  </p>
-                </div>
-              </div>
-            ) : isLoaded ? (
-              // Authenticated - Show chatbot iframe
+            {isLoaded ? (
               <iframe
                 src={CHATBOT_URL}
                 className="w-full h-full border-0"
                 title={CHATBOT_TITLE}
-                // Chat runs on our subdomain and needs access to localStorage/cookies. Allow same-origin and common features.
-                // NOTE: Only do this for a fully trusted origin (chat.nepalreforms.com).
                 sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
                 allow="microphone; clipboard-read; clipboard-write;"
                 referrerPolicy="origin"
                 loading="lazy"
               />
             ) : (
-              // Authenticated but iframe loading
               <div className="flex items-center justify-center h-full bg-gradient-to-br from-green-50 to-blue-50">
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4 animate-pulse">

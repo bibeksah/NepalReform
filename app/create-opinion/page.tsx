@@ -1,24 +1,19 @@
-import { redirect } from "next/navigation"
-import { createClient } from "@/lib/supabase/server"
 import { OpinionForm } from "@/components/opinion-form"
+import { Header } from "@/components/header"
 
-export default async function CreateOpinionPage() {
-  const supabase = await createClient()
+export const dynamic = "force-dynamic"
+export const revalidate = 0
 
-  const { data, error } = await supabase.auth.getUser()
-  if (error || !data?.user) {
-    redirect("/auth/login")
-  }
-
+export default function CreateOpinionPage() {
   return (
     <div className="min-h-screen bg-background">
+      <Header />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Create New Agenda</h1>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Propose Reform Agenda</h1>
             <p className="text-muted-foreground">
-              Share your thoughts and proposals for Nepal's democratic reforms. Your opinion will be reviewed before
-              being published.
+              Share your thoughts and reform proposals for Nepal. Your submission will be verified with your device signature and reviewed by the moderation team.
             </p>
           </div>
 

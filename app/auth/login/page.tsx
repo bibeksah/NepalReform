@@ -11,7 +11,7 @@ import { validateEmail } from "@/lib/utils/auth-validation"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { useState, useEffect } from "react"
-import { Eye, EyeOff, AlertCircle, CheckCircle, Mail } from "lucide-react"
+import { Eye, EyeOff, AlertCircle, CheckCircle, Mail, Shield } from "lucide-react"
 import { toast } from "sonner"
 
 export default function LoginPage() {
@@ -25,7 +25,7 @@ export default function LoginPage() {
   const { signIn, user } = useAuth()
   const router = useRouter()
   const searchParams = useSearchParams()
-  const redirectTo = searchParams.get('redirect') || '/'
+  const redirectTo = searchParams.get('redirect') || '/admin'
 
   // Redirect if already logged in
   useEffect(() => {
@@ -89,9 +89,8 @@ export default function LoginPage() {
       const { user, error } = await signIn(email, password)
 
       if (error) {
-        // Handle specific error types
         if (error.message.includes('Invalid login credentials')) {
-          setErrors({ general: 'Invalid email or password. Please try again.' })
+          setErrors({ general: 'Invalid administrator email or password.' })
         } else if (error.message.includes('Email not confirmed')) {
           setErrors({ general: 'Please check your email and click the confirmation link before signing in.' })
         } else if (error.message.includes('Too many requests')) {
@@ -103,43 +102,43 @@ export default function LoginPage() {
       }
 
       if (user) {
-        toast.success('Welcome back!', {
-          description: 'You have been successfully signed in.',
+        toast.success('Admin authentication verified', {
+          description: 'Welcome to NepalReforms Management Portal.',
         })
         router.push(redirectTo)
       }
     } catch (err) {
       console.error('Login error:', err)
-      setErrors({ general: 'An unexpected error occurred. Please try again.' })
+      setErrors({ general: 'An unexpected authentication error occurred.' })
     } finally {
       setIsLoading(false)
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 p-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-emerald-50 p-6">
       <div className="w-full max-w-md">
-        <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
+        <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm">
           <CardHeader className="text-center space-y-4">
-            <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-              <img src="/nepal-flag-logo.png" alt="NepalReforms Logo" className="w-12 h-12 object-contain" />
+            <div className="mx-auto w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center">
+              <Shield className="w-8 h-8" />
             </div>
-            <CardTitle className="text-2xl font-bold text-foreground">Welcome Back</CardTitle>
+            <CardTitle className="text-2xl font-bold text-foreground">Admin Portal Login</CardTitle>
             <CardDescription className="text-muted-foreground">
-              Sign in to your account to share and vote on opinions
+              Administrative & moderator access for NepalReforms Platform.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-sm font-medium">
-                  Email Address
+                  Admin Email
                 </Label>
                 <div className="relative">
                   <Input
                     id="email"
                     type="email"
-                    placeholder="your.email@example.com"
+                    placeholder="admin@nepalreforms.com"
                     required
                     value={email}
                     onChange={handleEmailChange}
@@ -201,35 +200,28 @@ export default function LoginPage() {
               )}
 
               <Button type="submit" className="w-full h-12 text-base font-medium" disabled={isLoading}>
-                {isLoading ? "Signing in..." : "Sign In"}
+                {isLoading ? "Authenticating..." : "Sign In to Admin Portal"}
               </Button>
             </form>
 
             <div className="mt-6 space-y-4">
               <div className="text-center">
-                <Link href="/auth/forgot-password" className="text-sm text-primary hover:underline">
-                  Forgot your password?
+                <Link href="/auth/forgot-password" className="text-xs text-muted-foreground hover:underline">
+                  Forgot administrative password?
                 </Link>
               </div>
-              
-              <div className="text-center">
-                <p className="text-sm text-muted-foreground">
-                  Don't have an account?{" "}
-                  <Link href="/auth/sign-up" className="text-primary hover:underline font-medium">
-                    Sign up
-                  </Link>
-                </p>
+              <div className="text-center pt-2">
+                <Link href="/" className="text-xs text-primary hover:underline">
+                  ← Return to Public Platform
+                </Link>
               </div>
             </div>
           </CardContent>
         </Card>
 
         <div className="mt-6 text-center">
-          <p className="text-sm text-muted-foreground">
-            Powered by{" "}
-            <Link href="https://nexalaris.com/" target="_blank" className="text-primary hover:underline font-medium">
-              Nexalaris Tech Pvt. Ltd
-            </Link>
+          <p className="text-xs text-muted-foreground">
+            NepalReforms Public Accountability Platform
           </p>
         </div>
       </div>

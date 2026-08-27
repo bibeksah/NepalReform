@@ -1,64 +1,48 @@
 {
   "id": "2",
-  "title": "Hold Free and Fair Elections (March 2026)",
-  "description": "Conduct parliamentary elections in March 2026 with critical reforms to prevent corrupt politicians from returning through strict candidate vetting, campaign finance transparency, and overseas voting implementation.",
+  "title": "Hold Free and Fair Elections",
+  "description": "Nepal completed its parliamentary election in March 2026. This public agenda is now treated as delivered, while deeper verification of candidate vetting, campaign finance transparency, and electoral integrity belongs in tracker-backed evidence.",
   "category": "Electoral Reform",
   "priority": "High",
-  "timeline": "Until March 5, 2026",
-  "updatedOn": "7 Nov 2025",
+  "timeline": "Completed on 5 March 2026",
+  "updatedOn": "5 Mar 2026",
   "problem": {
-    "short": "After Gen Z protests forced parliament's dissolution in September 2025, elections are set for March 5, 2026. But critical reforms to prevent the same corrupt politicians from returning remain unimplemented. Without these reforms now, we'll just get another corrupt government.",
-    "long": "After Gen Z protests forced parliament's dissolution in September 2025, elections are set for March 5, 2026. But critical reforms to prevent the same corrupt politicians from returning remain unimplemented. Without these reforms now, we'll just get another corrupt government. The election system allows criminals and corrupt people to run for office, and voters don't know where campaign money comes from. The window to get this right is closing fast."
+    "short": "This electoral milestone has already been delivered. The platform should reflect that the election itself is complete rather than still describing it as an upcoming event.",
+    "long": "Nepal completed its parliamentary election in March 2026. That means the public platform should no longer present this agenda as a future commitment or countdown. The completed election is a delivered milestone. What remains important now is post-election accountability: whether candidate vetting standards were strong enough, whether campaign finance disclosures were meaningful, whether electoral fairness held in practice, and what reforms still remain unfinished. Those deeper questions belong in tracker-backed evidence and follow-on reform agendas, not in a still-pending election status."
   },
   "solution": {
     "short": [
-      "Ban candidates with proven criminal and corruption charges AND pending corruption indictments",
-      "Real-time campaign finance transparency with all donations and spending published online within 24 hours",
-      "Ban corporate donations - only verified individual contributions allowed",
-      "Implement overseas voting for Nepali diaspora as mandated by Supreme Court (2017)",
-      "Add 'None of the Above' (NOTA) option - if it wins, hold fresh elections with new candidates"
+      "Mark this agenda as delivered on the public platform",
+      "Use the tracker for deeper post-election accountability and evidence review",
+      "Track unfinished electoral reforms as follow-on agendas instead of keeping this election milestone open"
     ],
     "long": {
       "phases": [
         {
-          "phase": "Candidate Vetting",
-          "title": "Must Implement Before Nominations (January 2026)",
+          "phase": "Completed milestone",
+          "title": "March 2026 election delivered",
           "items": [
-            "Ban candidates with proven criminal and corruption charges AND pending corruption indictments",
-            "Election Commission publishes detailed candidate profiles including education, experience, wealth sources, and complete criminal/corruption case status",
-            "Amend electoral laws NOW to enable disqualification - window closing fast",
-            "Clear vetting criteria with due process protections to prevent weaponization"
+            "The parliamentary election scheduled for March 2026 has already taken place",
+            "The public platform should therefore show this agenda as completed",
+            "Public-facing copy should avoid presenting the election as still upcoming"
           ]
         },
         {
-          "phase": "Campaign Finance Transparency",
-          "title": "Launch Before Campaign Begins",
+          "phase": "Accountability follow-through",
+          "title": "Deeper evidence belongs in the tracker",
           "items": [
-            "Real-time campaign finance transparency: All candidates must disclose budgets, funding sources, and spending online within 24 hours",
-            "Ban corporate donations: Only verified individual contributions allowed",
-            "Campaign spending limits: Strict ceiling with live monitoring and immediate penalties for violations",
-            "Public finance dashboard: Election Commission provides real-time tracking of all donations and expenditures",
-            "Mandatory audited expense reports within 30 days of polls with heavy penalties for violations"
+            "Candidate screening quality should be evaluated through tracker-backed records",
+            "Campaign finance transparency and enforcement should be reviewed through the accountability layer",
+            "Any gaps, irregularities, or unresolved disputes should be documented as evidence rather than hidden inside a completed milestone badge"
           ]
         },
         {
-          "phase": "Overseas Voting",
-          "title": "Implement Supreme Court Order (2017)",
+          "phase": "Next reform work",
+          "title": "Separate future reform from this delivered event",
           "items": [
-            "Government has committed to overseas voting but legal and logistical barriers remain",
-            "Supreme Court ordered (April 2017): Allow voting for Nepalis who haven't renounced citizenship, hold voter ID, and are registered with diplomatic missions",
-            "Start with pilot countries where permissions secured",
-            "Address legal conflicts (Voter Registration Act) through ordinance",
-            "Risk: If delayed 'for next time,' millions remain disenfranchised"
-          ]
-        },
-        {
-          "phase": "Additional Electoral Reforms",
-          "title": "Democratic Enhancement Measures",
-          "items": [
-            "Voter education campaign: Know your candidates' backgrounds, not just their rally promises",
-            "NOTA option: If 'None of the Above' wins in a constituency, re-election with entirely new candidates",
-            "Reform electoral laws to ensure all transparency measures are enforceable"
+            "If electoral law reforms remain unfinished, they should be tracked as distinct next-step agendas",
+            "The completed election should remain visible as a delivered milestone",
+            "Future electoral reform should be measured separately from the fact that the election itself already happened"
           ]
         }
       ]
@@ -66,90 +50,68 @@
   },
   "realWorldEvidence": {
     "short": [
-      "Canada requires real-time disclosure of donations over $200 within 3 days",
-      "Philippines has robust overseas voting with 1.3+ million voters abroad",
-      "Countries with stricter campaign finance rules have higher public trust in elections"
+      "The March 2026 parliamentary election was completed",
+      "A delivered election milestone should be displayed differently from unfinished reform promises",
+      "Post-election integrity questions still require deeper evidence review"
     ],
     "long": [
       {
-        "country": "Canada",
-        "details": "Requires real-time disclosure of donations over $200 within 3 days",
-        "impact": "Creates transparency and enables public scrutiny of political funding sources"
+        "country": "Nepal",
+        "details": "The parliamentary election scheduled for March 2026 has already been held.",
+        "impact": "This agenda should be marked as delivered on the public platform."
       },
       {
-        "country": "Australia",
-        "details": "Mandates disclosure of all donations over $15,200 annually",
-        "impact": "Countries with stricter campaign finance rules show higher public trust in elections and lower political corruption"
+        "country": "Platform principle",
+        "details": "Completed public milestones should not remain in a pre-delivery or countdown state.",
+        "impact": "This keeps the public platform honest about what has already happened versus what is still pending."
       },
       {
-        "country": "Philippines",
-        "details": "Has robust overseas voting system with 1.3+ million voters abroad in 2022 elections",
-        "impact": "Enables diaspora participation in democratic process"
-      },
-      {
-        "country": "India",
-        "details": "Implemented overseas voting cautiously starting in 2011",
-        "impact": "Demonstrates feasibility of diaspora voting in South Asian context"
+        "country": "Accountability principle",
+        "details": "A completed election does not end the need for oversight on fairness, money, and enforcement.",
+        "impact": "The tracker remains the right place for deeper evidence and post-election scrutiny."
       }
     ]
   },
   "implementation": {
     "short": [
-      "NOW (Nov-Dec 2025): Interim government issues ordinances to amend electoral laws",
-      "Before Nominations (Jan 2026): Disqualification criteria codified and public",
-      "During Campaign (Jan-Mar 2026): Real-time spending dashboard live",
-      "March 5, 2026: Elections with reformed system"
+      "Show this agenda as delivered across homepage, agenda cards, and detail views",
+      "Preserve tracker handoff for deeper evidence and accountability detail",
+      "Move any remaining electoral reform work into follow-on agenda tracking"
     ],
     "long": [
       {
-        "timeline": "NOW (November-December 2025)",
-        "description": "Emergency Legal and Institutional Preparation",
+        "timeline": "Completed",
+        "description": "Election milestone delivered",
         "details": [
-          "Interim government issues ordinances to amend electoral laws",
-          "Establish candidate vetting criteria with clear due process protections",
-          "Launch campaign finance transparency portal development",
-          "Finalize overseas voting pilot countries where permissions secured"
+          "Nepal completed the March 2026 parliamentary election",
+          "This agenda is now a delivered milestone rather than an upcoming reform event",
+          "Public status should read as complete wherever this agenda appears"
         ]
       },
       {
-        "timeline": "Before Nominations (January 2026)",
-        "description": "System Operationalization",
+        "timeline": "Now",
+        "description": "Reflect completion honestly on the public platform",
         "details": [
-          "Disqualification criteria codified and made public",
-          "Campaign finance disclosure system operational and tested",
-          "Candidate profile requirements published with supporting documentation standards",
-          "Overseas voting infrastructure ready in pilot countries"
+          "Homepage and agenda explorer surfaces should show delivered status",
+          "Agenda detail should explain that the election already happened",
+          "Tracker handoff should remain available for deeper verification and evidence review"
         ]
       },
       {
-        "timeline": "During Campaign (January-March 2026)",
-        "description": "Active Monitoring and Enforcement",
+        "timeline": "Next",
+        "description": "Track remaining reform gaps separately",
         "details": [
-          "Real-time spending dashboard live with 24-hour disclosure requirement",
-          "Voter education campaign on candidate backgrounds running continuously",
-          "Heavy penalties enforced immediately for violations",
-          "Election Commission actively monitoring and publishing campaign finance data"
-        ]
-      },
-      {
-        "timeline": "Election Day: March 5, 2026",
-        "description": "Conduct Reformed Elections",
-        "details": [
-          "Elections held with reformed vetting and transparency systems",
-          "NOTA option available in all constituencies",
-          "Overseas voting operational in pilot countries",
-          "Complete electoral process with enhanced accountability"
+          "Outstanding campaign finance, vetting, or electoral integrity reforms should be treated as separate follow-on work",
+          "Do not keep this election milestone artificially open just because broader reform remains unfinished",
+          "Use future agendas to show what still needs to be fixed"
         ]
       }
     ]
   },
   "performanceTargets": [
-    "Complete background verification for 100% of candidates before nominations",
-    "Real-time tracking of all campaign donations and spending with 24-hour disclosure",
-    "Zero tolerance for hidden campaign funding with immediate enforcement",
-    "Complete electoral process on March 5, 2026 with reformed system",
-    "Overseas voting operational in pilot countries",
-    "NOTA option available in all constituencies with clear re-election procedures"
+    "Election milestone completed on 5 March 2026",
+    "Public platform shows this agenda as delivered",
+    "Deeper post-election accountability remains available through tracker-backed evidence"
   ],
-  "legalFoundation": "Electoral laws can be amended through ordinance by interim government. Supreme Court order (April 2017) mandates overseas voting implementation."
+  "legalFoundation": "The election itself has already been completed. Any remaining electoral reform or accountability questions should be tracked separately through evidence-backed follow-up work."
 }

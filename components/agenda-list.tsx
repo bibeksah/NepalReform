@@ -117,33 +117,21 @@ export const AgendaList = memo(() => {
         if (!response.ok) throw new Error("Failed to fetch vote counts")
 
         const { voteCounts: counts, userVotes: votes } = await response.json()
-        setVoteCounts(counts)
+        setVoteCounts(counts || {})
 
-        // Update user votes if user is authenticated
-        if (user && votes) {
+        if (votes) {
           setUserVotes(votes)
         }
       } catch (error) {
         console.error("Error fetching vote counts:", error)
       }
     },
-    [user],
+    [],
   )
 
   useEffect(() => {
     fetchAgendas()
-    checkUser()
   }, [])
-
-  const checkUser = useCallback(async () => {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-    setUser(user)
-    if (user) {
-      fetchUserVotes(user.id)
-    }
-  }, [supabase.auth])
 
   const fetchAgendas = useCallback(async () => {
     try {

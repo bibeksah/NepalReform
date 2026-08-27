@@ -350,6 +350,7 @@ export function TestimonialManagement() {
                           width={40}
                           height={40}
                           className="object-cover w-full h-full"
+                          loading="lazy"
                         />
                       </div>
                     ) : (

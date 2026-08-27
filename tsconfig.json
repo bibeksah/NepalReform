@@ -37,6 +37,12 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/node_modules",
+    "nepalreforms-platform",
+    "nepalreforms-tracker",
+    "sell-my-vote-nepalreforms",
+    "NRAI-Kancha-v1",
+    "vitest.config.ts"
   ]
 }

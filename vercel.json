@@ -49,12 +49,6 @@
       "permanent": false
     }
   ],
-  "rewrites": [
-    {
-      "source": "/api/health",
-      "destination": "/api/status"
-    }
-  ],
   "env": {
     "NEXT_PUBLIC_SITE_URL": "https://nepal-reforms.vercel.app"
   }

@@ -1,17 +1,23 @@
 import { redirect } from "next/navigation"
 import { createClient } from "@/lib/supabase/server"
-import { UserProfile } from "@/components/user-profile"
+
+export const dynamic = "force-dynamic"
+export const revalidate = 0
 
 export default async function ProfilePage() {
   const supabase = await createClient()
 
-  const { data, error } = await supabase.auth.getUser()
-  if (error || !data?.user) {
-    redirect("/auth/login")
+  if (process.env.NEXT_PUBLIC_SUPABASE_URL === "https://placeholder.supabase.co") {
+    return <div>Building...</div>
   }
 
-  // Get user profile data
-  const { data: profile } = await supabase.from("profiles").select("*").eq("id", data.user.id).single()
+  const { data } = await supabase.auth.getUser()
+  if (data?.user) {
+    const { data: profile } = await supabase.from("profiles").select("role").eq("id", data.user.id).single()
+    if (profile?.role === "admin" || profile?.role === "moderator") {
+      redirect("/admin")
+    }
+  }
 
-  return <UserProfile user={data.user} profile={profile} />
+  redirect("/")
 }

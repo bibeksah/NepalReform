@@ -1,8 +1,12 @@
+import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import bundleAnalyzer from '@next/bundle-analyzer'
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })
+
+const projectRoot = dirname(fileURLToPath(import.meta.url))
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -17,9 +21,9 @@ const nextConfig = {
     ignoreBuildErrors: process.env.NODE_ENV === 'development',
   },
 
-  // Next.js 16: Turbopack config with root set for Windows compatibility
+  // Keep Turbopack rooted to this project directory even when dev is launched from a parent workspace.
   turbopack: {
-    root: process.cwd(),
+    root: projectRoot,
     resolveAlias: {
       'recharts/es6': 'recharts/lib',
     },

@@ -41,6 +41,7 @@ export async function updateSession(request: NextRequest) {
         },
       },
       auth: {
+        storageKey: 'nepalreforms.auth',
         autoRefreshToken: false,
         persistSession: false,
       },

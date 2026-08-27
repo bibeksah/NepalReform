@@ -216,19 +216,6 @@ export function useAgendaVotes(agendaId: string) {
     persistVoteData(optimisticData)
 
     try {
-      const supabase = createClient()
-      const {
-        data: { user },
-      } = await supabase.auth.getUser()
-
-      if (!user) {
-        setError("Please sign in to vote on this agenda item")
-        // Revert optimistic update
-        await fetchVotes()
-        setIsLoading(false)
-        return
-      }
-
       console.log("[v0] Submitting vote:", voteType, "for agenda:", agendaId)
 
       const response = await fetch(`/api/agendas/${agendaId}/vote`, {

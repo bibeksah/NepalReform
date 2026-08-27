@@ -1,9 +1,10 @@
 # Dependencies
 node_modules/
+**/node_modules/
 .pnp
 .pnp.js
 
-# Next.js & Webpack
+# Next.js build artifacts
 .next/
 out/
 build/
@@ -14,17 +15,22 @@ next-env.d.ts
 # Testing & Coverage
 coverage/
 .nyc_output/
+.playwright-mcp/
 
-# Python
+# Python & Other Subprojects (Separate Repositories)
+nepalreforms-platform/
+nepalreforms-tracker/
+sell-my-vote-nepalreforms/
+NRAI-Kancha-v1/
 __pycache__/
 *.py[cod]
-*$py.class
 *.sqlite3
 venv/
 .venv/
 env/
+graphify-out/
 
-# Temp & debug files
+# Temp, cache & debug files
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -32,10 +38,14 @@ yarn-error.log*
 .pnpm-debug.log*
 temp/
 tmp/
-.playwright-mcp/
 fail*.txt
 __tmp*
 *.cookies.txt
+*.aspx.html
+*.csv
+*.csv.txt
+*.sources.txt
+*.mmd
 
 # Environment variables
 .env*
@@ -46,3 +56,4 @@ __tmp*
 Thumbs.db
 .vscode/
 .idea/
+.claude/
