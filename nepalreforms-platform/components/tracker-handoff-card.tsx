@@ -17,7 +17,7 @@ export function TrackerHandoffCard({ trackerUrl, trackerAvailable, compact = fal
           <div className="space-y-1">
             <p className="text-sm font-semibold text-slate-900">Need deeper evidence?</p>
             <p className="text-sm text-slate-600">
-              This public page shows a summary signal. The tracker is where NepalReforms should show deeper records,
+              This public page shows a static graph-backed summary snapshot. Open the tracker when you want deeper records,
               provenance, and accountability detail.
             </p>
           </div>

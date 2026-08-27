@@ -81,7 +81,7 @@ export function ManifestoCard({ item }: ManifestoCardProps) {
           <p className="mt-2 text-sm text-slate-600">{item.promiseSourceStatus}</p>
           {item.promiseSourceQuote ? (
             <blockquote className="mt-3 rounded-lg border-l-4 border-violet-300 bg-white/80 px-3 py-2 text-sm italic text-slate-700">
-              ï¿½{item.promiseSourceQuote}ï¿½
+              &ldquo;{item.promiseSourceQuote}&rdquo;
             </blockquote>
           ) : (
             <p className="mt-3 text-xs text-slate-500">Exact supporting quote is not linked on the public page yet.</p>

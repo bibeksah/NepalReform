@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { loadManifestoSummaryData } from '@/lib/i18n';
 import { PublicProgressFields, withPublicProgress } from '@/lib/public-progress';
+import { AgendaGraphStatus, fetchAgendaGraphStatus } from '@/lib/tracker-graph';
 
 export interface ManifestoSummaryItem extends PublicProgressFields {
   id: string;
@@ -43,9 +44,10 @@ export interface ManifestoDetailItem extends PublicProgressFields {
 
 const manifestoCache: Record<string, ManifestoSummaryItem[]> = {};
 
-function normalizeManifestoSummaryItems(items: any[]): ManifestoSummaryItem[] {
+function normalizeManifestoSummaryItems(items: any[], graphStatusById: Record<string, AgendaGraphStatus> = {}): ManifestoSummaryItem[] {
   return items.map((item) => withPublicProgress({
     ...item,
+    graphStatus: graphStatusById[String(item.id)] ?? null,
     problem: item.problem ?? { short: '' },
     solution: item.solution ?? { short: [] },
     realWorldEvidence: item.realWorldEvidence ?? { short: [] },
@@ -69,7 +71,8 @@ export function useManifestoData() {
     const loadData = async () => {
       setLoading(true);
       const data = await loadManifestoSummaryData(i18n.language);
-      const normalized = normalizeManifestoSummaryItems(data);
+      const graphStatusById = await fetchAgendaGraphStatus(data.map((item: { id: string }) => String(item.id)));
+      const normalized = normalizeManifestoSummaryItems(data, graphStatusById);
       manifestoCache[i18n.language] = normalized;
       setManifestoData(normalized);
       setLoading(false);
