@@ -284,7 +284,7 @@ export function AdminDashboard({ user }: AdminDashboardProps) {
       <Card>
         <CardHeader>
           <CardTitle>Reform Categories</CardTitle>
-          <CardDescription>Overview of the 27 comprehensive reform proposals</CardDescription>
+          <CardDescription>Overview of the 31 comprehensive reform proposals</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-2 md:grid-cols-3">

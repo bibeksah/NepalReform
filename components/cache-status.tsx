@@ -57,7 +57,7 @@ export function CacheStatus() {
                   This includes:
                 </p>
                 <ul className="list-disc pl-5 space-y-1">
-                  <li>All 27 reform proposals</li>
+                  <li>All 31 reform proposals</li>
                   <li>Your votes and preferences</li>
                   <li>Suggestions you've made</li>
                   <li>Filter settings</li>

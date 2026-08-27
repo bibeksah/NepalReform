@@ -24,7 +24,7 @@ export default function NotFound() {
                 reforms.
               </p>
               <p className="text-sm text-muted-foreground">
-                We have 27 comprehensive reform proposals available for Nepal's democratic transformation.
+                We have 31 comprehensive reform proposals available for Nepal's democratic transformation.
               </p>
               <div className="flex gap-4 justify-center pt-4">
                 <Link href="/#agendas-section">

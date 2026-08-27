@@ -7,7 +7,7 @@
 [![Supabase](https://img.shields.io/badge/Supabase-Database-green?logo=supabase)](https://supabase.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-A comprehensive digital platform presenting 27 evidence-based reform proposals for Nepal's democratic transformation. Built with modern web technologies to enable citizen engagement, voting, and collaborative policy development.
+A comprehensive digital platform presenting 31 evidence-based reform proposals for Nepal's democratic transformation. Built with modern web technologies to enable citizen engagement, voting, and collaborative policy development.
 
 🌐 **Live Demo**: [https://nepalreforms.com](https://nepalreforms.com)
 
@@ -47,7 +47,7 @@ To empower Nepal's citizens, especially youth, to actively participate in shapin
 ## ✨ Features
 
 ### Core Functionality
-- **📊 27 Comprehensive Reforms**: Detailed proposals with multi-tier content structure
+- **📊 31 Comprehensive Reforms**: Detailed proposals with multi-tier content structure
 - **🗳️ Real-time Voting System**: Democratic priority setting through citizen votes
 - **💬 Community Suggestions**: Authenticated users can submit improvements
 - **🌐 Multi-language Support**: English and Nepali (coming soon)
@@ -67,7 +67,7 @@ To empower Nepal's citizens, especially youth, to actively participate in shapin
 
 ## 📂 Reform Categories
 
-The platform covers 27 reforms across these key areas:
+The platform covers 31 reforms across these key areas:
 
 | Category | Number of Reforms | Priority Focus |
 |----------|------------------|----------------|
@@ -189,7 +189,7 @@ nepal-reforms-platform/
 │   ├── agenda-vote-section.tsx
 │   └── suggestion-form.tsx
 ├── lib/                   # Utilities and configurations
-│   ├── manifesto-data.ts # Reform data (27 proposals)
+│   ├── manifesto-data.ts # Reform data (31 proposals)
 │   ├── supabase/         # Database client
 │   └── utils.ts          # Helper functions
 ├── public/               # Static assets

@@ -6,7 +6,7 @@
 - ✅ `app/sitemap.ts` - Dynamic sitemap generator (Next.js 15 native)
 - ✅ `app/robots.ts` - Robots.txt generator
 - ✅ `scripts/generate-sitemap.js` - Manual sitemap generator
-- ✅ All 27 reform pages included with proper priorities
+- ✅ All 31 reform pages included with proper priorities
 
 ### 2. **SEO Configuration**
 - ✅ `lib/seo-config.ts` - Centralized SEO metadata configuration
@@ -14,7 +14,7 @@
 - ✅ `components/structured-data.tsx` - Schema.org structured data
 
 ### 3. **Files Created**
-\`\`\`
+```
 📁 NepalReform-main/
 ├── 📄 app/sitemap.ts                    # Dynamic sitemap
 ├── 📄 app/robots.ts                     # Robots.txt
@@ -23,17 +23,17 @@
 ├── 📄 components/structured-data.tsx    # Schema markup
 ├── 📄 GOOGLE_INDEXING_GUIDE.md         # Complete guide
 └── 📄 SEO_CHECKLIST.md                 # This file
-\`\`\`
+```
 
 ## 🎯 Next Steps for Google Indexing
 
 ### Step 1: Deploy Your Site
-\`\`\`bash
+```bash
 npm run build
 npm run start
 # Or deploy to Vercel
 vercel --prod
-\`\`\`
+```
 
 ### Step 2: Verify Sitemap Works
 Visit these URLs after deployment:
@@ -49,14 +49,14 @@ Visit these URLs after deployment:
 ### Step 4: Request Priority Indexing
 In Search Console, use URL Inspection for:
 - Homepage
-- `/agenda/1` through `/agenda/27` (high priority reforms first)
+- `/agenda/1` through `/agenda/31` (high priority reforms first)
 - `/opinions`
 
 ## 📊 Sitemap Details
 
-### URLs Included (30 total):
+### URLs Included (34 total):
 - **Homepage** - Priority: 1.0
-- **27 Reform Pages** (`/agenda/1-27`) - Priority: 0.8-0.9
+- **31 Reform Pages** (`/agenda/1-31`) - Priority: 0.8-0.9
 - **Opinions Page** - Priority: 0.8
 - **Auth Pages** - Priority: 0.3
 

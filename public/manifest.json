@@ -1,7 +1,7 @@
 {
   "name": "Nepal Reforms Platform",
   "short_name": "Nepal Reforms",
-  "description": "27 Comprehensive Reform Proposals for Nepal's Democratic Transformation",
+  "description": "31 Comprehensive Reform Proposals for Nepal's Democratic Transformation",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
@@ -44,7 +44,7 @@
     {
       "name": "View All Reforms",
       "short_name": "Reforms",
-      "description": "View all 27 reform proposals",
+      "description": "View all 31 reform proposals",
       "url": "/agenda",
       "icons": [{ "src": "/nrlogo7.png", "sizes": "96x96" }]
     },

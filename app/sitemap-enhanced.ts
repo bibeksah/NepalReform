@@ -48,7 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     createEntry('/#agendas-section', 'daily', 0.95), // Agendas section
   ]
   
-  // All 27 reform agenda pages - Very important for SEO
+  // All 31 reform agenda pages - Very important for SEO
   const agendaPages: SitemapEntry[] = manifestoData.map((item) => {
     // Higher priority for High priority reforms
     const priority = item.priority === 'High' ? 0.9 : item.priority === 'Medium' ? 0.85 : 0.8

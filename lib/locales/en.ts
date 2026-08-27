@@ -13,7 +13,7 @@ export const commonEN = {
     "nepali": "Nepali",
     "signIn": "Sign In",
     "signOut": "Sign Out",
-    "reforms": "27 Reforms"
+    "reforms": "31 Reforms"
   }
   // Add other sections as needed
 } as const;

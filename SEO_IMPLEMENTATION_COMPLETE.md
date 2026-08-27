@@ -6,7 +6,7 @@
 
 #### 1. **Dynamic Sitemap System**
 - ✅ Automatic sitemap generation at `/sitemap.xml`
-- ✅ Includes all 27 reform pages with proper priorities
+- ✅ Includes all 31 reform pages with proper priorities
 - ✅ Updates automatically when content changes
 
 #### 2. **Robots.txt Configuration**
@@ -52,10 +52,10 @@ vercel --prod
 | Page Type | Count | Priority | Update Frequency |
 |-----------|-------|----------|-----------------|
 | Homepage | 1 | 1.0 | Daily |
-| Reform Pages | 27 | 0.8-0.9 | Weekly |
+| Reform Pages | 31 | 0.8-0.9 | Weekly |
 | Opinions | 1 | 0.8 | Daily |
 | Auth Pages | 2 | 0.3 | Monthly |
-| **Total** | **31** | - | - |
+| **Total** | **35** | - | - |
 
 ### 🔧 Commands Available
 

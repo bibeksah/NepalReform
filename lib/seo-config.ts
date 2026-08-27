@@ -3,8 +3,8 @@ import { Metadata } from 'next'
 // Base metadata configuration for the entire site
 export const siteConfig = {
   name: 'Nepal Reforms Platform',
-  title: 'Nepal Reforms - 27 Comprehensive Reform Proposals for Democratic Transformation',
-  description: 'Explore 27 evidence-based reform proposals for Nepal\'s democratic transformation. Vote, discuss, and contribute to shaping Nepal\'s future through transparency, anti-corruption, and governance reforms.',
+  title: 'Nepal Reforms - 31 Comprehensive Reform Proposals for Democratic Transformation',
+  description: 'Explore 31 evidence-based reform proposals for Nepal\'s democratic transformation. Vote, discuss, and contribute to shaping Nepal\'s future through transparency, anti-corruption, and governance reforms.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://nepalreforms.com',
   ogImage: '/og-image.png',
   links: {

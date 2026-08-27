@@ -17,7 +17,7 @@ Then visit:
 
 1. **Sitemap System** ✅
    - Dynamic sitemap at `/sitemap.xml`
-   - All 27 reform pages included
+   - All 31 reform pages included
    - Proper priorities (High priority reforms = 0.9)
 
 2. **SEO Setup** ✅
@@ -54,10 +54,10 @@ vercel --prod
 ### 📊 Your Sitemap Contains
 
 - **1** Homepage (Priority: 1.0)
-- **27** Reform Pages (Priority: 0.9)
+- **31** Reform Pages (Priority: 0.9)
 - **1** Opinions Page (Priority: 0.8)
 - **2** Auth Pages (Priority: 0.3)
-- **Total: 31 URLs**
+- **Total: 35 URLs**
 
 ### 🔥 Pro Tips
 

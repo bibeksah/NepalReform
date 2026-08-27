@@ -97,7 +97,7 @@ export const faqSchema = {
       name: 'What is the Nepal Reforms Platform?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'The Nepal Reforms Platform presents 27 comprehensive reform proposals for Nepal\'s democratic transformation, allowing citizens to vote, discuss, and contribute to shaping Nepal\'s future.',
+        text: 'The Nepal Reforms Platform presents 31 comprehensive reform proposals for Nepal\'s democratic transformation, allowing citizens to vote, discuss, and contribute to shaping Nepal\'s future.',
       },
     },
     {
