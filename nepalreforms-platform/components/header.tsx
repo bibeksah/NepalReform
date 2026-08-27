@@ -1,7 +1,8 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { createClient } from "@/lib/supabase/client"
+import { useState } from "react"
+import { useAuth } from "@/contexts/auth-context"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { LogOut, User, Menu, X, Home, Activity, ExternalLink, MessageSquarePlus } from "lucide-react"
@@ -11,47 +12,16 @@ import { useHydration } from "@/hooks/use-hydration"
 import { LanguageToggle } from "@/components/language-toggle"
 import { useTranslation } from "react-i18next"
 
-type AuthChangeEvent =
-  | "SIGNED_IN"
-  | "SIGNED_OUT"
-  | "USER_UPDATED"
-  | "USER_DELETED"
-  | "PASSWORD_RECOVERY"
-  | "TOKEN_REFRESHED"
-  | "MFA_CHALLENGE_VERIFIED"
-  | "MFA_VERIFIED"
-  | "MFA_ENROLL";
-
-interface Session {
-  user: {
-    id: string;
-    email: string;
-  };
-}
-
 export function Header() {
-  const [user, setUser] = useState<any>(null)
+  const { user, signOut } = useAuth()
+  const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const isHydrated = useHydration()
-  const supabase = createClient()
   const { t, ready } = useTranslation('common')
 
-  useEffect(() => {
-    if (!isHydrated) return
-    const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser()
-      setUser(user)
-    }
-    checkUser()
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session: Session | null) => {
-      setUser(session?.user ?? null)
-    })
-    return () => subscription.unsubscribe()
-  }, [supabase.auth, isHydrated])
-
   const handleSignOut = async () => {
-    await supabase.auth.signOut()
-    window.location.href = "/"
+    await signOut()
+    router.push("/")
   }
 
   if (!ready || !isHydrated) {
@@ -70,10 +40,10 @@ export function Header() {
     )
   }
 
-  const navItems = [
+  const navItems: { href: string; label: string; icon: typeof Home; external?: boolean }[] = [
     { href: "/", label: "Home", icon: Home },
     { href: "/#agendas-section", label: "Agendas", icon: Activity },
-    { href: "https://tracker.nepalreforms.com", label: "Tracker", icon: ExternalLink, external: true },
+    { href: "/tracker", label: "Tracker", icon: Activity },
     { href: "/testimonials", label: "Voices", icon: MessageSquarePlus },
   ]
 
@@ -102,7 +72,14 @@ export function Header() {
             <LanguageToggle />
             {user ? (
               <div className="flex items-center gap-3">
-                <Avatar className="h-8 w-8"><AvatarFallback className="bg-primary text-primary-foreground text-sm">{user.email?.charAt(0).toUpperCase()}</AvatarFallback></Avatar>
+                <Link href="/dashboard" className="flex items-center gap-2 hover:opacity-80 transition-opacity" title="Dashboard">
+                  <Avatar className="h-8 w-8">
+                    <AvatarFallback className="bg-primary text-primary-foreground text-sm font-semibold">
+                      {user.email?.charAt(0).toUpperCase()}
+                    </AvatarFallback>
+                  </Avatar>
+                  <span className="hidden lg:inline text-xs font-medium text-slate-700">Dashboard</span>
+                </Link>
                 <Button variant="ghost" size="sm" onClick={handleSignOut} className="text-sm"><LogOut className="mr-2 h-4 w-4" />{t('header.signOut')}</Button>
               </div>
             ) : (
@@ -110,7 +87,13 @@ export function Header() {
             )}
           </div>
 
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen((value) => !value)}>
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="md:hidden" 
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            onClick={() => setIsMenuOpen((value) => !value)}
+          >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
@@ -125,7 +108,12 @@ export function Header() {
               ))}
               <div className="pt-2"><LanguageToggle /></div>
               {user ? (
-                <Button variant="ghost" size="sm" onClick={handleSignOut} className="w-full justify-start"><LogOut className="mr-2 h-4 w-4" />{t('header.signOut')}</Button>
+                <>
+                  <Link href="/dashboard" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 text-sm font-medium text-primary">
+                    <User className="h-4 w-4" />Dashboard
+                  </Link>
+                  <Button variant="ghost" size="sm" onClick={handleSignOut} className="w-full justify-start"><LogOut className="mr-2 h-4 w-4" />{t('header.signOut')}</Button>
+                </>
               ) : (
                 <Button asChild size="sm" className="w-full"><Link href="/auth/login" onClick={() => setIsMenuOpen(false)}><User className="mr-2 h-4 w-4" />{t('header.signIn')}</Link></Button>
               )}
