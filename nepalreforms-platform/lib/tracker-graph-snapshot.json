@@ -1,0 +1,978 @@
+{
+  "data": [
+    {
+      "agendaId": "1",
+      "agendaItemId": "agenda_item:04d565d959cd6f28",
+      "title": "Transform CIAA into a Truly Independent Anti-Corruption Force",
+      "updatedAt": "2026-04-01T14:38:04.511000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "3-5 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 7,
+      "alignmentAssessments": 2,
+      "relationTypes": [
+        "STRONGLY_ALIGNS",
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 1,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Strengthening Constitutional Bodies",
+          "alignmentAssessmentId": "alignment_assessment:d4692e8ff2afb944",
+          "relationType": "STRONGLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:f4e71f466c60b674",
+          "sourcePage": 17,
+          "sourceExcerpt": "सरकारी सेवाभित्रको दलगत ट्रेड युनियन व्यवस्था खारेज गरी प्रशासनलाई पूर्ण रूपमा पेशागत",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "10",
+      "agendaItemId": "agenda_item:592089b85230e8d8",
+      "title": "Reform Public Transportation with Smart Urban Planning",
+      "updatedAt": "2026-04-01T14:38:05.597000000+00:00",
+      "active": true,
+      "priority": "Medium",
+      "timeline": "3 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 8,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 4,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Highway Quality and Bypass Roads",
+          "alignmentAssessmentId": "alignment_assessment:76d17929b05f5327",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:e6a64429df91138e",
+          "sourcePage": 28,
+          "sourceExcerpt": "इन्जिनियरिङ मापदण्ड लगायत ठेक्का प्रक्रियामा व्यापक सुधार ल्याई राष्ट्रिय राजमार्ग सञ्जालको",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Technology-Driven Road Safety",
+          "alignmentAssessmentId": "alignment_assessment:6e74d7c91054ed96",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:33edc71b962fbef5",
+          "sourcePage": 27,
+          "sourceExcerpt": "पोखरा र भैरहवा अन्तर्राष्ट्रिय विमानस्थलहरूलाई पूर्ण सञ्चालनमा ल्याउन विभिन्न शुल्कमा छुटको व्यवस्था",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "50-Year Railway Master Plan",
+          "alignmentAssessmentId": "alignment_assessment:fb32e775b0c6ab10",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:1ca426b1291dc51a",
+          "sourcePage": 28,
+          "sourceExcerpt": "इन्जिनियरिङ मापदण्ड लगायत ठेक्का प्रक्रियामा व्यापक सुधार ल्याई राष्ट्रिय राजमार्ग सञ्जालको",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Ending Syndicates in Transportation",
+          "alignmentAssessmentId": "alignment_assessment:8a2ce8d0866d9d37",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:dcbd9205dd7a1e09",
+          "sourcePage": 27,
+          "sourceExcerpt": "पोखरा र भैरहवा अन्तर्राष्ट्रिय विमानस्थलहरूलाई पूर्ण सञ्चालनमा ल्याउन विभिन्न शुल्कमा छुटको व्यवस्था",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "11",
+      "agendaItemId": "agenda_item:afad9ecdf8570038",
+      "title": "Transform Education for All Nepalis",
+      "updatedAt": "2026-04-01T14:38:05.687000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "5 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 8,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 6,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Massive Investment in Public Education",
+          "alignmentAssessmentId": "alignment_assessment:fa59eddbab8f3703",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:0e4eb94d816b1450",
+          "sourcePage": 28,
+          "sourceExcerpt": "इन्जिनियरिङ मापदण्ड लगायत ठेक्का प्रक्रियामा व्यापक सुधार ल्याई राष्ट्रिय राजमार्ग सञ्जालको",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Restructuring Universities",
+          "alignmentAssessmentId": "alignment_assessment:3b14b648ce49a309",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:59b9f75a447867e1",
+          "sourcePage": 29,
+          "sourceExcerpt": "शिक्षकलाई शिक्षाको मेरुदण्डका रूपमा स्वीकार गर्दै योग्यता, क्षमता र निरन्तर पेशागत विकास",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Regulating Private Education",
+          "alignmentAssessmentId": "alignment_assessment:a6ce5016563909cc",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:c81401f6ab50c761",
+          "sourcePage": 28,
+          "sourceExcerpt": "इन्जिनियरिङ मापदण्ड लगायत ठेक्का प्रक्रियामा व्यापक सुधार ल्याई राष्ट्रिय राजमार्ग सञ्जालको",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Nepal as an International Higher Education Hub",
+          "alignmentAssessmentId": "alignment_assessment:0ae37c1d5ce43303",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:1a325e9ee08ce7f5",
+          "sourcePage": 29,
+          "sourceExcerpt": "शिक्षकलाई शिक्षाको मेरुदण्डका रूपमा स्वीकार गर्दै योग्यता, क्षमता र निरन्तर पेशागत विकास",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Inclusive Schools and Special Education",
+          "alignmentAssessmentId": "alignment_assessment:9c673c317f036205",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:db61c4a3c0f38160",
+          "sourcePage": 28,
+          "sourceExcerpt": "इन्जिनियरिङ मापदण्ड लगायत ठेक्का प्रक्रियामा व्यापक सुधार ल्याई राष्ट्रिय राजमार्ग सञ्जालको",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Teachers as the Backbone of Education",
+          "alignmentAssessmentId": "alignment_assessment:ee1c603d9ce3a5ad",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:80c6b4d21edebd42",
+          "sourcePage": 29,
+          "sourceExcerpt": "शिक्षकलाई शिक्षाको मेरुदण्डका रूपमा स्वीकार गर्दै योग्यता, क्षमता र निरन्तर पेशागत विकास",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "12",
+      "agendaItemId": "agenda_item:4606e497535f349d",
+      "title": "Promote Local Production and Innovation, Ensure Quality",
+      "updatedAt": "2026-04-01T14:38:05.779000000+00:00",
+      "active": true,
+      "priority": "Medium",
+      "timeline": "3 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "13",
+      "agendaItemId": "agenda_item:03eca8952978d4f9",
+      "title": "Reform Student Politics into Civic Education",
+      "updatedAt": "2026-04-01T14:38:05.869000000+00:00",
+      "active": true,
+      "priority": "Medium",
+      "timeline": "3 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 2,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 1,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Depoliticizing Education",
+          "alignmentAssessmentId": "alignment_assessment:1c15a125936318a2",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:3caf0cc0937b1e05",
+          "sourcePage": 28,
+          "sourceExcerpt": "इन्जिनियरिङ मापदण्ड लगायत ठेक्का प्रक्रियामा व्यापक सुधार ल्याई राष्ट्रिय राजमार्ग सञ्जालको",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "14",
+      "agendaItemId": "agenda_item:346a0acb2f6b41aa",
+      "title": "Make Security Services Merit-Based with Health Checks",
+      "updatedAt": "2026-04-01T14:38:05.960000000+00:00",
+      "active": true,
+      "priority": "Medium",
+      "timeline": "5 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 6,
+      "alignmentAssessments": 1,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 1,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Strengthening Mental Health Services",
+          "alignmentAssessmentId": "alignment_assessment:efb401ac9c6ce7b4",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:1264dc353cc2084d",
+          "sourcePage": 31,
+          "sourceExcerpt": "प्रत्येक प्रदेशमा कम्तीमा एक अत्याधुनिक अपांगता पुनर्स्थापना विशेषीकृत स्रोत केन्द्र स्थापना",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "15",
+      "agendaItemId": "agenda_item:bb834cfcbda16f21",
+      "title": "Attract Quality Foreign Investment with Strong Safeguards",
+      "updatedAt": "2026-04-01T14:38:06.061000000+00:00",
+      "active": true,
+      "priority": "Medium",
+      "timeline": "3 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 5,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "16",
+      "agendaItemId": "agenda_item:a32f3c9a4052b32e",
+      "title": "Make Proportional Representation More Democratic",
+      "updatedAt": "2026-04-01T14:38:06.152000000+00:00",
+      "active": true,
+      "priority": "Medium",
+      "timeline": "3 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 6,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "17",
+      "agendaItemId": "agenda_item:0d6ce2b58dc79e90",
+      "title": "End Permanent Government Jobs Without Performance",
+      "updatedAt": "2026-04-01T14:38:06.254000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "3 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 6,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "18",
+      "agendaItemId": "agenda_item:71de2aec3085dfcf",
+      "title": "End Political Appointments in Government",
+      "updatedAt": "2026-04-01T14:38:06.403000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "1 year",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 6,
+      "alignmentAssessments": 1,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 1,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Depoliticization of Civil Service",
+          "alignmentAssessmentId": "alignment_assessment:0c2c1122781d1c78",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:413e0ee466b0fac0",
+          "sourcePage": 17,
+          "sourceExcerpt": "सरकारी सेवाभित्रको दलगत ट्रेड युनियन व्यवस्था खारेज गरी प्रशासनलाई पूर्ण रूपमा पेशागत",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "19",
+      "agendaItemId": "agenda_item:9a2378c9c77e8713",
+      "title": "Make Courts Truly Independent",
+      "updatedAt": "2026-04-01T14:38:06.509000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "5 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 7,
+      "alignmentAssessments": 4,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "STRONGLY_ALIGNS",
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 3,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Meritocracy in Judicial Appointments",
+          "alignmentAssessmentId": "alignment_assessment:643d02e6bb2c748e",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:1599f84d9de2b82f",
+          "sourcePage": 18,
+          "sourceExcerpt": "संक्रमणकालीन न्यायका बाँकी काम टुङ्ग्याउन र न्यायिक कोष ऐनलाई समयानुकूल कार्यान्वयन",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Live Streaming of Court Hearings",
+          "alignmentAssessmentId": "alignment_assessment:463ce355d535dcdb",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:0eeca133a32b2349",
+          "sourcePage": 18,
+          "sourceExcerpt": "संक्रमणकालीन न्यायका बाँकी काम टुङ्ग्याउन र न्यायिक कोष ऐनलाई समयानुकूल कार्यान्वयन",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Strengthening Constitutional Bodies",
+          "alignmentAssessmentId": "alignment_assessment:8fcb785caf08740c",
+          "relationType": "STRONGLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:f4e71f466c60b674",
+          "sourcePage": 17,
+          "sourceExcerpt": "सरकारी सेवाभित्रको दलगत ट्रेड युनियन व्यवस्था खारेज गरी प्रशासनलाई पूर्ण रूपमा पेशागत",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "2",
+      "agendaItemId": "agenda_item:6617e0378c639c9d",
+      "title": "Hold Free and Fair Elections (March 2026)",
+      "updatedAt": "2026-04-01T14:38:04.787000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "Until March 5, 2026",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 6,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "20",
+      "agendaItemId": "agenda_item:43a578866412e916",
+      "title": "Track All Government Spending in Real-Time",
+      "updatedAt": "2026-04-01T14:38:06.612000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "18 months",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "21",
+      "agendaItemId": "agenda_item:43e059fe4404ae41",
+      "title": "Make All Government Decisions Transparent",
+      "updatedAt": "2026-04-01T14:38:06.685000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "1 year",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 4,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 2,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Ending the Traditional \"Tippani",
+          "alignmentAssessmentId": "alignment_assessment:aecc8eaa3cce62a1",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:b119dbf06fef05a9",
+          "sourcePage": 17,
+          "sourceExcerpt": "सरकारी सेवाभित्रको दलगत ट्रेड युनियन व्यवस्था खारेज गरी प्रशासनलाई पूर्ण रूपमा पेशागत",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Live Streaming of Court Hearings",
+          "alignmentAssessmentId": "alignment_assessment:2ca6dea1b2116b5c",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:0eeca133a32b2349",
+          "sourcePage": 18,
+          "sourceExcerpt": "संक्रमणकालीन न्यायका बाँकी काम टुङ्ग्याउन र न्यायिक कोष ऐनलाई समयानुकूल कार्यान्वयन",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "22",
+      "agendaItemId": "agenda_item:b5d3125b82034ccb",
+      "title": "Add 'None of the Above' Option in All Elections",
+      "updatedAt": "2026-04-01T14:38:06.786000000+00:00",
+      "active": true,
+      "priority": "Medium",
+      "timeline": "6 months",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "23",
+      "agendaItemId": "agenda_item:54b0da7f6cb90663",
+      "title": "Limit Prime Ministers to Two Terms Maximum",
+      "updatedAt": "2026-04-01T14:38:06.882000000+00:00",
+      "active": true,
+      "priority": "Medium",
+      "timeline": "2 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "24",
+      "agendaItemId": "agenda_item:3d7e3f089fda18f6",
+      "title": "Reform Government Property Management",
+      "updatedAt": "2026-04-01T14:38:06.969000000+00:00",
+      "active": true,
+      "priority": "Low",
+      "timeline": "18 months",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "25",
+      "agendaItemId": "agenda_item:7e0dad05404e18e0",
+      "title": "Transform Healthcare System for Universal Coverage",
+      "updatedAt": "2026-04-01T14:38:07.060000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "5 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 7,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 4,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Minimum Standards for Basic Health Services",
+          "alignmentAssessmentId": "alignment_assessment:001d1b2ede055d34",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:4f84e3be7874ee92",
+          "sourcePage": 30,
+          "sourceExcerpt": "देशभर आधारभूत स्वास्थ्य क्षेत्रमा न्यूनतम मापदण्ड कायम गरी सेवा प्रवाह गर्न आवश्यक मानव संसाधन",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Focus on Preventative Healthcare",
+          "alignmentAssessmentId": "alignment_assessment:1c76d97663690b9d",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:2b89be266ac48db2",
+          "sourcePage": 30,
+          "sourceExcerpt": "देशभर आधारभूत स्वास्थ्य क्षेत्रमा न्यूनतम मापदण्ड कायम गरी सेवा प्रवाह गर्न आवश्यक मानव संसाधन",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Strengthening Mental Health Services",
+          "alignmentAssessmentId": "alignment_assessment:3e9ee8a11d600f87",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:1264dc353cc2084d",
+          "sourcePage": 31,
+          "sourceExcerpt": "प्रत्येक प्रदेशमा कम्तीमा एक अत्याधुनिक अपांगता पुनर्स्थापना विशेषीकृत स्रोत केन्द्र स्थापना",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Universal Health Insurance",
+          "alignmentAssessmentId": "alignment_assessment:d8afccda2585b2eb",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:176b43e02d459b60",
+          "sourcePage": 30,
+          "sourceExcerpt": "देशभर आधारभूत स्वास्थ्य क्षेत्रमा न्यूनतम मापदण्ड कायम गरी सेवा प्रवाह गर्न आवश्यक मानव संसाधन",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "26",
+      "agendaItemId": "agenda_item:4a17bd0f980a2b22",
+      "title": "Overhaul Social Protection System",
+      "updatedAt": "2026-04-01T14:38:07.148000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "5 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 1,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 1,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Social Market Economy",
+          "alignmentAssessmentId": "alignment_assessment:f64379f6d5b7a8e8",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:ea191ec090bf8b35",
+          "sourcePage": 19,
+          "sourceExcerpt": "आर्थिक उन्नयनको हाम्रो मूल आधार उत्पादनत्वमा निरन्तर वृद्धि हुनेछ",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "27",
+      "agendaItemId": "agenda_item:0d8ae607d50ebe98",
+      "title": "Reform Financial Management System",
+      "updatedAt": "2026-04-01T14:38:07.241000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "2 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "28",
+      "agendaItemId": "agenda_item:ef52717f40347be5",
+      "title": "Reform Foreign Relations and Diplomacy for Strategic Sovereignty",
+      "updatedAt": "2026-04-01T14:38:07.332000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "5 years (phased)",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 6,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "29",
+      "agendaItemId": "agenda_item:d53da183fdc7a1a1",
+      "title": "Modernize Ministry of Culture, Tourism and Civil Aviation into Data-Driven, Technically-Led Institution",
+      "updatedAt": "2026-04-01T14:38:07.479000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "5 years (phased)",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 10,
+      "alignmentAssessments": 1,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 1,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Reform in Civil Aviation and Nepal Airlines",
+          "alignmentAssessmentId": "alignment_assessment:da72dcd64bbe4ad3",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:da7ea3d4179106b5",
+          "sourcePage": 26,
+          "sourceExcerpt": "नेपाल भित्रिने पर्यटक संख्या र उनीहरूको प्रतिव्यक्ति खर्चलाई पाँच वर्षभित्र दोब्बर पार्दै",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "3",
+      "agendaItemId": "agenda_item:b2bb3fb12753b27c",
+      "title": "Decentralize Power from Kathmandu to Provinces and Local Levels",
+      "updatedAt": "2026-04-01T14:38:04.902000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "5-10 years (phased)",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 3,
+      "alignmentAssessments": 1,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 1,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Constitution Amendment within Three Months",
+          "alignmentAssessmentId": "alignment_assessment:d2ed17b4eb3ba534",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:7fc6de7b94d96800",
+          "sourcePage": 17,
+          "sourceExcerpt": "सरकारी सेवाभित्रको दलगत ट्रेड युनियन व्यवस्था खारेज गरी प्रशासनलाई पूर्ण रूपमा पेशागत",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "30",
+      "agendaItemId": "agenda_item:6defc1f80595c79c",
+      "title": "Implement One-Door Policy for Tourism Permits and Services",
+      "updatedAt": "2026-04-01T14:38:07.643000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "3 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 3,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 2,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Doubling Tourism and Diversifying Destinations",
+          "alignmentAssessmentId": "alignment_assessment:0b7db1c19d9265cd",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:8e486a5958d3b743",
+          "sourcePage": 26,
+          "sourceExcerpt": "नेपाल भित्रिने पर्यटक संख्या र उनीहरूको प्रतिव्यक्ति खर्चलाई पाँच वर्षभित्र दोब्बर पार्दै",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Single Digital Tourism Portal and Mountaineering Safety",
+          "alignmentAssessmentId": "alignment_assessment:a8e03e009d5fa56d",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:62e5a96ad3959457",
+          "sourcePage": 26,
+          "sourceExcerpt": "नेपाल भित्रिने पर्यटक संख्या र उनीहरूको प्रतिव्यक्ति खर्चलाई पाँच वर्षभित्र दोब्बर पार्दै",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "31",
+      "agendaItemId": "agenda_item:90e1821d7c212a3b",
+      "title": "Open Data and Transparency for Tourism Statistics",
+      "updatedAt": "2026-04-01T14:38:07.799000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "3 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "4",
+      "agendaItemId": "agenda_item:cfc7282f783145ad",
+      "title": "Implement Mandatory Wealth Disclosure for All Politicians",
+      "updatedAt": "2026-04-01T14:38:04.980000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "6 months",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 6,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "5",
+      "agendaItemId": "agenda_item:5d2b7c908600dd4d",
+      "title": "Set Strict Qualifications for Government Ministers and Members of Parliament",
+      "updatedAt": "2026-04-01T14:38:05.075000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "1 year",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 7,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    },
+    {
+      "agendaId": "6",
+      "agendaItemId": "agenda_item:f3e1e50f8f345a28",
+      "title": "Constitutional Reform for Stable Governance",
+      "updatedAt": "2026-04-01T14:38:05.181000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "5 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 2,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 2,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Party Discipline and Zero Tolerance for Corruption",
+          "alignmentAssessmentId": "alignment_assessment:e923db87d7f60319",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:7ef0db7829a757c8",
+          "sourcePage": 36,
+          "sourceExcerpt": "रास्वपले प्रवासका नेपालीहरूलाई देशको आर्थिक रुपान्तरणको एक आधार मान्दछ",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Strengthening Constitutional Bodies",
+          "alignmentAssessmentId": "alignment_assessment:bd4502b54c3e1866",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:f4e71f466c60b674",
+          "sourcePage": 17,
+          "sourceExcerpt": "सरकारी सेवाभित्रको दलगत ट्रेड युनियन व्यवस्था खारेज गरी प्रशासनलाई पूर्ण रूपमा पेशागत",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "7",
+      "agendaItemId": "agenda_item:ca7629e8c52dfd50",
+      "title": "Digitize All Government Services",
+      "updatedAt": "2026-04-01T14:38:05.276000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "2 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 7,
+      "alignmentAssessments": 4,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS",
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 2,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Ending the Traditional \"Tippani",
+          "alignmentAssessmentId": "alignment_assessment:32d6b04d518dde47",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:b119dbf06fef05a9",
+          "sourcePage": 17,
+          "sourceExcerpt": "सरकारी सेवाभित्रको दलगत ट्रेड युनियन व्यवस्था खारेज गरी प्रशासनलाई पूर्ण रूपमा पेशागत",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        },
+        {
+          "promiseTitle": "Digital Service Delivery (\"Online, Not In Line",
+          "alignmentAssessmentId": "alignment_assessment:24afb16f75365e3e",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:c878a30164e7f078",
+          "sourcePage": 16,
+          "sourceExcerpt": "दलित समुदायले नेपालको सामाजिक संरचना, राज्यका कानुन, नीति तथा व्यवहारका कारण अन्याय",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "8",
+      "agendaItemId": "agenda_item:c688701d2e3204b7",
+      "title": "Create Transparent Public Contracting",
+      "updatedAt": "2026-04-01T14:38:05.413000000+00:00",
+      "active": true,
+      "priority": "High",
+      "timeline": "2 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 1,
+      "relationTypes": [
+        "PARTIALLY_ALIGNS"
+      ],
+      "directPromiseLinks": 1,
+      "promiseLinks": [
+        {
+          "promiseTitle": "Digital Service Delivery (\"Online, Not In Line",
+          "alignmentAssessmentId": "alignment_assessment:2dfc4c0fe8189c7a",
+          "relationType": "PARTIALLY_ALIGNS",
+          "sourceReference": "C:\\Users\\bibek\\Projects\\NepalReform\\nepalreforms-tracker\\sources\\RSPdocs\\वाचा पत्र .pdf",
+          "promiseId": "political_promise:c878a30164e7f078",
+          "sourcePage": 16,
+          "sourceExcerpt": "दलित समुदायले नेपालको सामाजिक संरचना, राज्यका कानुन, नीति तथा व्यवहारका कारण अन्याय",
+          "documentId": "manifesto_document:3964e23747298c55",
+          "documentName": ""
+        }
+      ]
+    },
+    {
+      "agendaId": "9",
+      "agendaItemId": "agenda_item:e45b923776174cf1",
+      "title": "Break Monopolies and Strengthen Consumer Protection",
+      "updatedAt": "2026-04-01T14:38:05.508000000+00:00",
+      "active": true,
+      "priority": "Medium",
+      "timeline": "2 years",
+      "solutionPlans": 1,
+      "implementationPlans": 1,
+      "evidenceSummaries": 1,
+      "performanceTargets": 4,
+      "alignmentAssessments": 0,
+      "relationTypes": [],
+      "directPromiseLinks": 0,
+      "promiseLinks": []
+    }
+  ],
+  "count": 31,
+  "source": "static_graph_snapshot"
+}
